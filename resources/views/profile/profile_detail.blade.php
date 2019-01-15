@@ -75,7 +75,7 @@
 					<input type="submit" name="submit" value="Update" class="btn btn-lg green">
 
 					<a href="#change" role="button" class="pull-right" data-toggle="modal">
-						If you will change Password
+						Change Password
 					</a>
 
 				</form>

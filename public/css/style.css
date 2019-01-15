@@ -1,0 +1,14 @@
+@font-face{
+	font-family:Zawgyi-One;
+	font-style:normal;
+	font-weight:normal;
+	src:url("/fonts/ZawgyiOne.eot");
+	src:url("/fonts/ZawgyiOne.ttf") format("truetype");
+}
+body {
+	font-family:Zawgyi-One;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family:Zawgyi-One;
+}
+

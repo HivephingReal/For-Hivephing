@@ -1,0 +1,2 @@
+[09-May-2018 10:12:34 UTC] PHP Warning:  require(/home/hivephing/public_html/public/../bootstrap/autoload.php): failed to open stream: No such file or directory in /home/hivephing/public_html/public/index.php on line 22
+[09-May-2018 10:12:34 UTC] PHP Fatal error:  require(): Failed opening required '/home/hivephing/public_html/public/../bootstrap/autoload.php' (include_path='.:/opt/cpanel/ea-php71/root/usr/share/pear') in /home/hivephing/public_html/public/index.php on line 22

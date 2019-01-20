@@ -110,8 +110,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
             <span href="#" style="" class="phone_top">09773777445</span>
         </div>
     </div>
-
-
 </div>
 </div>
 {{--slider--}}
@@ -234,7 +232,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
                 </div>
                 <br>
-                <br>
             </form>
         </div>
     </div>
@@ -242,16 +239,16 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 </div>
 {{--login form--}}
 
-{{--start project--}}
 
-<div class="col-xs-12" style="background-color:#eae9e9b0;">
-    <div class="col-sm-12 col-md-12">
-        <h4 class="login_lyrics" style="margin-left:0px;margin-top:0px;">Our Projects</h4>
-        <div class="mar_for_t_p" style="">
 
+<div class="col-md-12" style="background-color: white; padding-top: 100px; padding-bottom: 100px;"><!-- #eae9e9b0 --> 
+{{--start of "our project"--}}
+<div class="col-md-4">
+        
+            <h4 class="login_lyrics" style="margin-left:0px;margin-top:0px;">Our Projects</h4>
             <ul class="for_js">
                 <li style="margin-bottom:6px;"><i>
-                        <a onclick="show_ds(cname='1')" class="pcat">Construction </a>
+                        <a onclick="show_ds(cname='1')" class="pcat">Construction</a>
                         {{--<button class="badge badge-success btd-custom">--}}
                         <?php
                         $con = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['rb1', 'b1', 'b2', 'b3'])->get();
@@ -268,9 +265,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                             @endif
                         @endforeach
                         {{--{{$con_count}}--}}
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
+                    
                         {{--</button>--}}
                         <span class="fa fa-arrow-right" style="color:#fab700;" onclick="show_ds(cname='1')"></span>
                     </i></li>
@@ -507,12 +502,11 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
             </ul>
 
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-12" style="">
-        <div class="row mar_for_p" style="">
-            <h4 class="login_lyrics" style="margin-left:0px;margin-top:0px;"> <span
-                        style="color:#efd031;"></span></h4>
+        
+</div>
+<!-- end of "our project" -->
+        <div class="col-md-8" style="">
+        
             <div class="latest" style="overflow-y: auto;height:452px;padding:12px;">
 
                 <ol id="show1" style="display:block;">
@@ -737,11 +731,13 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
 
             </div>
-        </div>
-    </div>
+    
+</div>
+    <!-- end of project list -->
+
+
 </div>
 
-{{--end project--}}
 
 
 <div class="col-xs-12 footer_custom" style="color:white;">

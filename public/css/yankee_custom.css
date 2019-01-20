@@ -175,12 +175,12 @@ body {
     margin-left: 192px;
     margin-top: 123px;
     font-weight: bolder;
-    background: rgba(255, 255, 255, 0.5);
     text-align: center;
     font-size: 30px;
     font-family: "Poppins";
     color: #45454a;
     font-weight: 500;
+    padding-top: 20px;
 }
 
 .login_lyrics_two {
@@ -236,7 +236,7 @@ body {
     }
 
     .for_pad_login {
-        min-height: 1021px;
+        min-height: 700px; /*ki fixed here*/
         margin-left: 1px;
         margin-right: 1px;
         border-bottom: 2px solid #c3bcbc;

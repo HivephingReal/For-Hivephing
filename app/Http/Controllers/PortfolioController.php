@@ -21,7 +21,7 @@ class PortfolioController extends Controller
         $this->middleware('NeedToRegister', ['except' => ['detail_without_auth']]);
     }
     public function add(Request $request){
-        return view('user.entra.port.add');
+        return view('user.entra.port.new_portfolio_add'); /*ki fixed here*/
 
     }
     public function add_data(Request $request){
@@ -34,7 +34,7 @@ class PortfolioController extends Controller
                 'start_date' => 'required|date',
                 'end_date' => 'required|date',
                 'photo' => 'required',
-                'address' => 'required|min:5|max:1600'
+                'address' => 'min:5|max:1600' /*ki fixed here*/
             ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all());

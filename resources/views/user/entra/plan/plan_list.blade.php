@@ -73,10 +73,13 @@
 @endif
 
 
-<div class="col-xs-12" style="background-color:white;padding-bottom:22px;">
+ <div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;" >
+         <div class="col-xs-12" style="background-color:white;">
+         <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder;margin-top: 30px;">Plans
+        </div>
+        <div class="col-xs-12" style="background-color: #80808021;text-align: center; font-size:20px;font-weight:bolder; margin-bottom: 30px;margin-top: 10px;">
+              If you want to know more about plans, please contact us. Phone Numbers: 09456114442, 09773777445</div>
     <div class="col-xs-12">
-
-        <div class="row">&nbsp;</div>
 
         <div class="col-md-12">
 
@@ -88,14 +91,6 @@
                 <!-- BEGIN PAGE BAR -->
 
                 <div class="portlet light portlet-fit ">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="icon-microphone font-dark hide"></i>
-                            <span class="caption-subject bold font-dark uppercase"> Plans</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span class="caption-helper">If you want to know more about plans, please contact us : Phone Number... 09456114442,09773777445</span>
-                        </div>
-
-                    </div>
                     <div class="portlet-body">
                         <?php
                         $tocp = DB::table('plans')->where('user_id', Auth:: user()->id)->count();
@@ -313,5 +308,6 @@
         </div>
         <div class="row">&nbsp;</div>
     </div>
+</div>
 </div>
 @endsection

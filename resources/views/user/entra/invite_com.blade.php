@@ -74,17 +74,15 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     \Illuminate\Support\Facades\Session::forget('no_auth');
     ?>
 @endif
-<div class="col-xs-12" style="background-color:#ddedf2;padding-bottom:22px;">
-    <br>
-    <br>
-    <br>
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white;">
         @if(\Illuminate\Support\Facades\Session::has('error'))
         <div class="alert alert-danger" style="text-align: center;font-weigth:bold;">
             {{\Illuminate\Support\Facades\Session::get('error')}}
         </div>
         @endif
 
-    <div class="col-xs-12" style="text-align: center;font-size:22px;font-weight:bolder;margin-top:12px;">Invite Projects
+    <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">Invite Projects
     </div>
 
     <!-- paid plan -->
@@ -170,12 +168,12 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 <br/>
                                 {{ strip_tags(str_limit($d->description,140)) }}
                             </div>
-                            <span class="badge badge-danger">
+                           <!--  <span class="badge badge-danger">
                                 <?php
                                 $comp = DB::table('user_saw_this_plan')->where([['project_id', '=', $d->id]])->count();
                                 ?>
                                 {{$comp}}
-                                </span> <strong style="color:#67809f;">Competitors</strong> &nbsp;&nbsp; &nbsp;&nbsp;
+                                </span> <strong style="color:#67809f;">Competitors</strong> &nbsp;&nbsp; &nbsp;&nbsp; -->
                             <strong style="color:#67809f;">Post Date : {{$d->created_at}}</strong>
 
                         </div>
@@ -193,5 +191,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
         </div>
     </div>
 
+</div>
 </div>
 @endsection

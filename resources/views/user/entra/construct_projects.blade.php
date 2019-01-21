@@ -72,8 +72,9 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     \Illuminate\Support\Facades\Session::forget('no_auth');
     ?>
 @endif
-<div class="col-xs-12" style="background-color:#ddedf2;padding-bottom:22px;">
-    <div class="col-xs-12" style="text-align: center;font-size:22px;font-weight:bolder;margin-top:12px;">Construct Projects
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white;">
+    <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">Construct Projects
     </div>
     <div class="col-xs-12">
         @if(\Carbon\Carbon::parse(Auth::user()->created_at)->addDays(30) > \Carbon\Carbon::now())
@@ -359,4 +360,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     </div>
 
 </div>
+</div>
 @endsection
+

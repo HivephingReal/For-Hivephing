@@ -90,7 +90,6 @@
                                 <div class="tab-pane active" id="tab_actions_pending">
                                     <!-- BEGIN: Actions -->
                                     <div class="mt-actions pa">
-                                    @if(!is_null($pmessage) && !is_null($bmessage))
                                         @foreach($pmessage as $pmsg)
                                             @if($pmsg->id == $last->id)
 
@@ -232,22 +231,6 @@
                                             @endif
 
                                         @endforeach
-                                    @elseif
-                                                <div class="mt-action animated fadeIn p" id="{{$pmsg->id}}">
-                                                    <div class="mt-action-img">
-                                                    </div>
-                                                    <div class="mt-action-body">
-                                                        <div class="mt-action-row">
-                                                            <div class="mt-action-info ">
-                                                              You haven't sent any messages yet.
-                                                                
-                                                            
-                                                                
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                    @endif
                                     </div>
                                     <!-- END: Actions -->
                                 </div>

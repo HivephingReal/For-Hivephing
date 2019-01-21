@@ -9,7 +9,8 @@
     Your Dashboard
 @endsection
 @section('bg'){{asset('images/about_banner.jpg')}}@endsection
-<div class="col-xs-12" style="background-color:white;padding-bottom:22px;">
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN THEME PANEL -->
@@ -22,9 +23,9 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         @include('user.entra.alert.alert')
-        <h1 class="page-title page_title">
+       <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">
             Your company's detail
-        </h1>
+        </div>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
 
@@ -259,6 +260,7 @@
         @endif
     </div>
 
+</div>
 </div>
 
 @endsection

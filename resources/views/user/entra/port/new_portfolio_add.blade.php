@@ -10,16 +10,12 @@
 
 <!-- END SIDEBAR -->
 <!-- BEGIN CONTENT -->
-<div class="col-xs-12" style="background:white;">
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
         <!-- BEGIN CONTENT BODY -->
-     <div class="page-content" style="min-height: 400px !important;">
-     <div class="row">&nbsp;</div>
-     <div class="row">&nbsp;</div>
-     <div class="row">&nbsp;</div>
-
-            <h1 class="page-title page_title">
+     <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; color: grey; margin-bottom: 30px;margin-top: 30px;">
                 Adding New Portfolio
-            </h1>
+            </div>
 
 
             <div class="col-md-6 col-md-offset-3">
@@ -168,6 +164,7 @@
     	<!-- END CONTENT BODY -->
 
 	</div>
+    </div>
 
 <!-- END CONTENT -->
 <!-- BEGIN QUICK SIDEBAR -->

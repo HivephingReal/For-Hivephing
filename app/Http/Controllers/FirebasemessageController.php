@@ -24,7 +24,7 @@ class FirebasemessageController extends FirebasehelperController
         if($old_token->count() > 0){
             if($old_token->first()->token == $token){
             }else{
-                $old_token->updated(['user_id'=>$user_id,'token'=>$token,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);
+                $old_token->update(['user_id'=>$user_id,'token'=>$token,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);
             }
         }else{
             FirebaseModel::create(['user_id'=>$user_id,'token'=>$token,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);

@@ -599,7 +599,10 @@
         // TODO(developer): Retrieve an Instance ID token for use with FCM.
         messaging.getToken().then(function(currentToken) {
             if (currentToken) {
-                console.log(currentToken);
+                console.log('token:'+currentToken);
+                $.post("http://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
+                    console.log(data);
+                });
 
             } else {
                 // Show permission request.
@@ -617,11 +620,11 @@
     messaging.onMessage(function(payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("http://localhost/comreal/HivePhing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
+        $.post("http://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
             console.log(data);
         });
-        $(".modal-title").html(payload.notification.title);
-        $(".modal-body").html(payload.data.post_id);
+        $(".modal-title").html("<h3 style='font-weight:bold'>"+payload.notification.title+"</h3>");
+        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='http://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
         // [START_EXCLUDE]
         // Update the UI to include the received message.

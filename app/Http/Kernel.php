@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
         'RegisterFee' => \App\Http\Middleware\Registerfee::class,
         'Plans' => \App\Http\Middleware\PlansMid::class,
         'block' => \App\Http\Middleware\Block::class,
+        'admin' =>\App\Http\Middleware\Admin::Class,
 
     ];
 }

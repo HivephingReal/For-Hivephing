@@ -5,46 +5,37 @@
     @section('title')
 	Profile Detail
     @endsection
-	<div class="col-xs-12" style="background:white;">
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
         <!-- BEGIN CONTENT BODY -->
-     <div class="page-content" style="min-height: 400px !important;">
-     <div class="row">&nbsp;</div>
-     <div class="row">&nbsp;</div>
-     <div class="row">&nbsp;</div>
-
-            <h1 class="page-title page_title">
-                Profile Detail
-            </h1>
+     
+            <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; color: #32c5d2; margin-bottom: 30px;margin-top: 30px;">
+            	Your Profile
+    		</div>
 
 			@if(session('status'))
+			<div class="col-xs-12">
 				<div class="alert alert-success">
 					{{session('status')}}
 				</div>
+			</div>
 			@endif
 
 
 			@if(session('success'))
-
+			<div class="col-xs-12">
 	    		<div class="alert alert-success">
 	    			{{ session('success') }}
 	    		</div>
-
+	    	</div>
 	    	@endif
 
-
             <div class="col-md-6 col-md-offset-3">
-
 	            <form action="{{ url('entra/profile_detail/'.$data->id) }}" method="post">
-
-
 	            	{{ csrf_field() }}
-	            	<!-- {{ csrf_field() }} adds the cross site request forgery token
-
-						https://tutorials.kode-blog.com/laravel-authentication-with-password-reset
-						https://www.tutorialrepublic.com/
-	            	 -->
-
+	            	
 	            	<input type="hidden" name="id" value="{{ $data->id }}">
+
 					<div class="form-group">
 						<label class="input-title"> Name </label>
 						<input class="form-control" type="text" name="name" value="{{$data->name}}">
@@ -71,16 +62,18 @@
                         @endif
 					</div>
 
-
 					<input type="submit" name="submit" value="Update" class="btn btn-lg green">
 
 					<a href="#change" role="button" class="pull-right" data-toggle="modal">
-						If you will change Password
+						Change Password
 					</a>
-
 				</form>
 
         	</div>
+        	</div>
+    	<!-- END CONTENT BODY -->
+
+	</div>
 
 			<!-- Modal HTML -->
 			<div id="change" class="modal fade">
@@ -153,9 +146,7 @@
 			        </div>
 			    </div>
 			</div>
-            	</div>
-    	<!-- END CONTENT BODY -->
-
-	</div>
+            
+</div>
 
 @endsection

@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+/* Heading */
+h1{
+    color: #137582;
+}
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+/*Link*/
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #00bcd4;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+ /*table*/
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+   border: 1px solid #dddddd;
+   text-align: left;
+   padding: 8px;
+}
+
+tr:nth-child(odd) {
+   background-color: #dddddd;
+}
+ /* Navigation bar */
+ .navbar1 {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar1 a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Dropdown button */
+.dropdown1 {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown1 .dropbtn1 {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar1 a:hover, .dropdown1:hover .dropbtn1 {
+    background-color: darkgrey;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content1 a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content1 a:hover {
+    background-color: #ddd;
+}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+/* from layouts.dashboard */
+.dropdown {
+    display:inline-block;
+    margin-left:20px;
+    padding:10px;
+    background-color: #ffffff;
+    border-radius: 50% !important;
+  }
+
+.notifications {
+   min-width:420px;
+  }
+  
+.notifications-wrapper {
+     overflow:auto;
+      max-height:250px;  
+    }
+    
+.menu-title {
+     color:#ff7788;
+     font-size:1.5rem;
+      display:inline-block;
+
+      }
+      
+
+.notification-heading, .notification-footer  {
+ 	padding:2px 10px;
+       }
+      
+        
+/* .dropdown-menu .divider { 
+  margin:8px -458px 0;
+  right: 52px;
+  }
+*/
+.dropdown-menu.divider {
+  margin:5px 0;          
+  }
+.item-title {
+ font-size:1.3rem;
+ color:#000;
+}
+
+.notifications a.content {
+ text-decoration:none;
+ background:#ccc; 
+ }
+    
+.notification-item {
+ padding:10px;
+ margin:5px;
+ background:#ccc;
+ border-radius:4px;
+ }
+
+ .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: #7ee4ec;
+  color: red;
+  font-weight: bold;
+}
+

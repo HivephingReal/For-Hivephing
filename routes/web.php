@@ -57,7 +57,7 @@ Route::post('business_plan_upload', 'BusinessController@business_plan_upload');
 Route::get('business_plan_edit/{id}', 'BusinessController@business_plan_edit_form');
 Route::get('business_plan_delete/{id}', 'BusinessController@business_plan_delete');
 Route::post('business_plan_edit', 'BusinessController@business_plan_edit');
-//route for op
+//route for op.
 Route::get('pending_service', 'ServiceController@pending_service_show');
 Route::get('confirmed_service', 'ServiceController@confirmed_service');
 Route::get('service/detail/{id}', 'ServiceController@pending_service_detail');

@@ -10,9 +10,10 @@
 
 <!-- END SIDEBAR -->
 <!-- BEGIN CONTENT -->
-<div >
+
     <!-- BEGIN CONTENT BODY -->
-    <div class="col-xs-12" style="background-color:white;padding-bottom:22px;" >
+    <div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;" >
+         <div class="col-xs-12" style="background-color:white;">
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN THEME PANEL -->
 
@@ -20,16 +21,13 @@
         <!-- BEGIN PAGE BAR -->
 
 
-        <h1 class="page-title page_title">
-            Portfolio
-        </h1>
-        <a href="{{url('entra/portfolio/add')}}" class="btn btn-info">Add New Portfolio</a>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="row" >
+         <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder;margin-top: 30px;">Your Portfolio
+        </div>
+        <div class="col-xs-12" style="background-color: #80808021;text-align: center; font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 10px;">
+              <a href="{{url('entra/portfolio/add')}}" class="btn btn-info">Add New Portfolio</a>
+        </div>
+          
+        <div class="col-xs-12">
             @foreach($data as $d)
 
                 <div class="col-md-6 " >
@@ -49,14 +47,13 @@
                                        class="btn btn-default btn-sm" >
                                         <i class="fa fa-trash" ></i > Delete </a >
                                 </div >
-                                <script >
+                                <script>
                                     function de(li) {
                                         if (window.confirm('Are You Sure Want to delete?')) {
                                             window.location.assign(li);
                                         }
                                     }
-                                    ;
-                                </script >
+                                </script>
                             @endif
 
                         </div >
@@ -102,9 +99,10 @@
 
         </div >
 
+    </div>
     </div >
     <!-- END CONTENT BODY -->
-</div >
+
 <!-- END CONTENT -->
 <!-- BEGIN QUICK SIDEBAR -->
 <a href="javascript:;" class="page-quick-sidebar-toggler" >

@@ -39,8 +39,9 @@
     ?>
 @endif
 
-<div class="col-xs-12 " style='overflow:auto;height:823px;background-color: white;'>
-    <div class="col-xs-12" style="text-align: center;font-size:22px;font-weight:bolder;margin-top:12px;">Tenders
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
+    <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">Tenders
     </div>
     @if($bid != '')
         @foreach($imp_events as $in)
@@ -114,6 +115,6 @@
 
 
 </div>
-
+</div>
 @endsection
 

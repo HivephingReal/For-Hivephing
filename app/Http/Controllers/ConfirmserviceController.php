@@ -141,7 +141,8 @@ class ConfirmserviceController extends FirebasehelperController
             FirebasehelperController::sendnotimsg($body = str_limit($get_project_data->description, '150', '...'), $title = $get_project_data->name, $token = $send_user_token,$post_id=$get_project_data->id );
 
 //        }
-        return $send_user_token;
+         return redirect('/confirmed_service');
+
 
     }
 

@@ -401,7 +401,7 @@
                 console.log(x);
 
                 var p = $('.b').attr('id');
-                $.getJSON('http://www.hivephing.com/entra/get_mail_ajax/' + x,
+                $.getJSON('https://www.hivephing.com/companies/entra/get_mail_ajax/' + x,
                     function (result) {
                         console.log(result);
                         if (result.success == 1) {
@@ -474,7 +474,7 @@
                         }
 
                     });
-                $.getJSON('http://www.hivephing.com/entra/get_bmail_ajax/' + p, function (result) {
+                $.getJSON('https://www.hivephing.com/companies/entra/get_bmail_ajax/' + p, function (result) {
                     if (result.bsuccess == 1) {
                         for (i = 0; i < result.bdata.length; i++) {
                             if (result.btype == null) {

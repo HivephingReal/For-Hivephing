@@ -20,7 +20,7 @@
           name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
           type="text/css"/>
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet"
@@ -518,7 +518,7 @@
     $(document).ready(function () {
         $("#country").click(function () {
             var id= $("#country option:selected").val();
-            $.get("http://hivephing.com/get_cities_ajax/"+id, function (data) {
+            $.get("https://hivephing.com/get_cities_ajax/"+id, function (data) {
                 console.log(data.data);
                 $("#cities").children().remove();
                 $('#cities').prop("disabled", false);
@@ -578,7 +578,7 @@
 <!-- Google Code for Universal Analytics -->
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-{{--<script src="http://localhost/comreal/HivePhing/resources/views/layouts/firebase-messaging-sw.js"></script>--}}
+{{--<script src="https://localhost/comreal/HivePhing/resources/views/layouts/firebase-messaging-sw.js"></script>--}}
 <script>
     // TODO: Replace with your project's customized code snippet
     var config = {
@@ -600,7 +600,7 @@
         messaging.getToken().then(function(currentToken) {
             if (currentToken) {
                 console.log('token:'+currentToken);
-                $.post("http://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
+                $.post("https://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
                     console.log(data);
                 });
 
@@ -620,11 +620,11 @@
     messaging.onMessage(function(payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("http://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
+        $.post("https://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
             console.log(data);
         });
         $(".modal-title").html("<h3 style='font-weight:bold'>"+payload.notification.title+"</h3>");
-        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='http://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='https://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
         // [START_EXCLUDE]
         // Update the UI to include the received message.

@@ -3,13 +3,13 @@
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
 Version: 4.7.5
 Author: KeenThemes
-Website: http://www.keenthemes.com/
+Website: https://www.keenthemes.com/
 Contact: support@keenthemes.com
 Follow: www.twitter.com/keenthemes
 Dribbble: www.dribbble.com/keenthemes
 Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Purchase: https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -30,7 +30,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="Preview page of Metronic Admin Theme #1 for managed datatable samples" name="description" />
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
 
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -261,7 +261,7 @@ License: You must have a valid license purchased only from themeforest(the above
         }
 
         .bgs {
-            background-image: url('http://localhost/companies/public/images/banner.jpg');
+            background-image: url('https://localhost/companies/public/images/banner.jpg');
             color: white;
             background-repeat: no-repeat;
             background-size: 100% 100%;
@@ -295,7 +295,7 @@ License: You must have a valid license purchased only from themeforest(the above
             }
 
             .bgs {
-                background-image: url('http://localhost/companies/public/images/banner.jpg');
+                background-image: url('https://localhost/companies/public/images/banner.jpg');
                 color: white;
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
@@ -431,7 +431,7 @@ License: You must have a valid license purchased only from themeforest(the above
         messaging.getToken().then(function(currentToken) {
             if (currentToken) {
                 console.log('token:'+currentToken);
-                $.post("http://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
+                $.post("https://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
                     console.log(data);
                 });
 
@@ -451,11 +451,11 @@ License: You must have a valid license purchased only from themeforest(the above
     messaging.onMessage(function(payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("http://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
+        $.post("https://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
             console.log(data);
         });
         $(".modal-title").html("<h3 style='font-weight:bold'>"+payload.notification.title+"</h3>");
-        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='http://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='https://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
         // [START_EXCLUDE]
         // Update the UI to include the received message.

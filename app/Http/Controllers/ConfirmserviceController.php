@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FirebaseModel;
 use App\Mail\Mailsfunction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,7 @@ class ConfirmserviceController extends FirebasehelperController
 
         DB::table('relation_user_post_and_op')->where([['op_id', '=', auth()->guard('admin')->user()->id], ['post_id', '=', $id]])->update(['process' => 'confirmed']);
 
-        if (DB::connection('mysql_service')->table('for_repair')->where('id', $id)->update(['confirm' => 'confirmed'])) {
+        if (DB::connection('mysql_service')->table('for_repair')->where('id', $id)->update(['confirm' => 'confirmed','updated_at'=>Carbon::now()])) {
 
         }
         $get_project_data = DB::connection('mysql_service')->table('for_repair')->where('id', $id)->first();
@@ -40,7 +41,6 @@ class ConfirmserviceController extends FirebasehelperController
                 $fr = 1;
                 break;
             case 'fr3':
-
                 $fr = 2;
                 break;
             case 'rb3':
@@ -122,18 +122,14 @@ class ConfirmserviceController extends FirebasehelperController
 //
 //            FirebasehelperController::store_firebase_data($ptitle = $get_project_data->name, $status = 'unread', $user_id = $gc->user_id, $date = $get_project_data->created_at, $project_id = $get_project_data->id, $project_description = 'Testing TestingTestingTestingTestingTestingTesting');
 //            FirebasehelperController::store_firebase_data($ptitle= $get_project_data->name,$user_id=,$date=Carbon::now(),$project_id='33',$project_description='effefefefe',$status='unread');
-
-
 //            if (Mail::to($gc->email)->send(new Mailsfunction($title, $des))) {
 //            } else {
 //                continue;
 //            }
-
             //for firebase
             $check_for_firebase = FirebaseModel::where('user_id', $gc->user_id);
             if ($check_for_firebase->count() > 0) {
-                $send_user_token = $check_for_firebase->first()->token;
-
+                $send_user_token[] = $check_for_firebase->first()->token;
             } else {
                 continue;
             }
@@ -142,10 +138,10 @@ class ConfirmserviceController extends FirebasehelperController
 
 //        if (!empty($send_user_token)) {
 
-            FirebasehelperController::sendnotimsg($body = str_limit($get_project_data->description, '50', '...'), $title = $get_project_data->name, $token = $send_user_token,$post_id=$get_project_data->id );
+            FirebasehelperController::sendnotimsg($body = str_limit($get_project_data->description, '150', '...'), $title = $get_project_data->name, $token = $send_user_token,$post_id=$get_project_data->id );
 
 //        }
-        return redirect('confirmed_service');
+        return $send_user_token;
 
     }
 

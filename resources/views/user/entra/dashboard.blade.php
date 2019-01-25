@@ -2,7 +2,8 @@
 @section('content')
     <div class="">
         <!-- BEGIN CONTENT BODY -->
-        <div class="col-xs-12" style="background-color:white;padding-bottom:22px;">
+    <div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN THEME PANEL -->
 
@@ -61,17 +62,13 @@
                     </div>
                 @endif
             @endif
-            <div class="col-xs-12">&nbsp;</div>
-            <div class="col-xs-12">&nbsp;</div>
-            <div class="col-xs-12" style="text-align: center;font-size:22px;font-weight:bolder;margin-top:12px;">Your
+            <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">Your
                 Dashboard
             </div>
-            <div class="col-xs-12">&nbsp;</div>
-            <div class="col-xs-12">&nbsp;</div>
             <div class="col-xs-12">
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5" style="background-color: white;;
-                        border: 2px solid #e4e0e0; margin-right: 5px;">
+                        border: 2px solid #e4e0e0; margin-left: 40px; margin-right: 5px;">
                     <div class="portlet light ">
                         <div class="portlet-title tabbable-line">
                             <div class="caption">
@@ -379,6 +376,7 @@
 
             </div>
             <!-- END CONTENT BODY -->
+        </div>
         </div>
         <!-- END CONTENT -->
         <!-- BEGIN QUICK SIDEBAR -->

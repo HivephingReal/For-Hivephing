@@ -7,7 +7,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 @section('content')
     <!-- BEGIN : LOGIN PAGE 5-1 -->
 @section('title')
-    Construct Project
+    Invite Company
 @endsection
 @section('bg'){{asset('images/about_banner.jpg')}}@endsection
 @if(\Illuminate\Support\Facades\Session::has('no_auth'))

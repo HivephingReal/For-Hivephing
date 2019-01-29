@@ -43,7 +43,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     ?>
 @endif
 
-<div class="col-xs-12" style="background-color:white;padding-bottom:22px;">
+<div class="col-xs-12" style="background-color:#ddedf2; padding: 30px;">
+    <div class="col-xs-12" style="background-color:white;">
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN THEME PANEL -->
@@ -59,9 +60,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title">
-            Company Detail Edit Form
-        </h1>
+        <div class="col-xs-12" style="background-color: #8ca9d038;text-align: center;font-family: Century Gothic;font-size:30px;font-weight:bolder; margin-bottom: 30px;margin-top: 30px;">Company Profile Edition
+        </div>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="row">
@@ -71,7 +71,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     <div class="portlet-title">
                         <div class="caption font-red-sunglo">
                             <i class="icon-settings font-red-sunglo"></i>
-                            <span class="caption-subject bold uppercase"> Company Edit Form</span>
+                            <span class="caption-subject bold uppercase">Please edit your company perfectly.</span>
                         </div>
                     </div>
                     @if(\Illuminate\Support\Facades\Session::has('success'))
@@ -80,7 +80,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
                             <p> Your company was
                                 successfully {{\Illuminate\Support\Facades\Session::get('success')}}
-
                             </p>
                         </div>
                     @endif
@@ -439,6 +438,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
         <!-- END FOOTER -->
     </div>
 
+    </div>
 </div>
 
 @endsection

@@ -335,7 +335,7 @@ class EntroController extends Controller
 
         if ($data->count() > 0) {
             return view('user.entra.company_detail', ['d' => $data, 'rate' => $rate]);
-        }
+        }/*cm_detail2       company_detail*/
     }
 
     public function rating($id)

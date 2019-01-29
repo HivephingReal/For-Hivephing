@@ -129,29 +129,23 @@ class ConfirmserviceController extends FirebasehelperController
             //for firebase
             $check_for_firebase = FirebaseModel::where('user_id', $gc->user_id);
             if ($check_for_firebase->count() > 0) {
+                DB::table('notification')->insert(['userid'=>$get_project_data->user_id,'read_or_un'=>'unread','for_whom_user_id'=>$gc->user_id,'status'=>'confirmed_by_op','pid'=>$get_project_data->id,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);
                 $send_user_token[] = $check_for_firebase->first()->token;
             } else {
                 continue;
             }
             //end for firebase
         }
-
 //        if (!empty($send_user_token)) {
-
-            FirebasehelperController::sendnotimsg($body = str_limit($get_project_data->description, '150', '...'), $title = $get_project_data->name, $token = $send_user_token,$post_id=$get_project_data->id );
-
+            FirebasehelperController::sendnotimsg($body = str_limit($get_project_data->description, '150', '...'),$title = $get_project_data->name, $token = $send_user_token,$post_id=$get_project_data->id );
 //        }
          return redirect('/confirmed_service');
-
-
     }
-
     public function test_mail()
     {
         $get_project_data = DB::connection('mysql_service')->table('for_repair')->where('id', 230)->first();
         $title = $get_project_data->name;
         $des = str_limit($get_project_data->description, '120', '...');
-
         Mail::to('koluchaw@gmail.com')->send(new Mailsfunction($title, $des));
         return 'good';
     }

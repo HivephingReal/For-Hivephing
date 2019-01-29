@@ -43,10 +43,6 @@ Route::post('company_register_form_three', 'EntroController@company_register_for
 Route::post('company_register', 'EntroController@company_register');
 
 
-
-
-
-
 Route::get('business_news', 'EntroController@businessnew');
 Route::get('othernews', 'EntroController@othernews');
 Route::get('company_detail/{id}', 'EntroController@company_detail');
@@ -68,18 +64,21 @@ Route::get('see_which_company_see_thist/{id}/{pid}', 'ServiceController@com_see_
 //end route for op
 Route::get('service/detail/confirm/{id}', 'ConfirmserviceController@confirm_service');
 Route::group(['prefix' => 'entra'], function () {
+
+//get all noti for companies
+    Route::get('get_noti/{id}', 'NotificationController@get_noti');
+    Route::get('clear_noti/{id}', 'NotificationController@clear_noti');
+
     //construct projects
-   // add_form_for_other_paint
-    Route::get('construct_projects','ConstructprojectsController@get_projects');
-    Route::post('upload_quotation','ConstructprojectsController@upload_quotation');
-    Route::get('send_quotation','ConstructprojectsController@sendquotation');
-    Route::get('request_quotation','ConstructprojectsController@request_quotation');
-    Route::get('construct_project_detail/{id}','ConstructprojectsController@detail');
+    // add_form_for_other_paint
+    Route::get('construct_projects', 'ConstructprojectsController@get_projects');
+    Route::post('upload_quotation', 'ConstructprojectsController@upload_quotation');
+    Route::get('send_quotation', 'ConstructprojectsController@sendquotation');
+    Route::get('request_quotation', 'ConstructprojectsController@request_quotation');
+    Route::get('construct_project_detail/{id}', 'ConstructprojectsController@detail');
 
 
-
-
-    Route::get('construct_project_detail_one/{id}','ConstructprojectsController@construct_project_detail_one');//project id
+    Route::get('construct_project_detail_one/{id}', 'ConstructprojectsController@construct_project_detail_one');//project id
 
 
 //portfolio
@@ -92,34 +91,25 @@ Route::group(['prefix' => 'entra'], function () {
     Route::post('portfolio/edit/{id}', 'PortfolioController@edit');
 
 
-
-
-
-
-
-
-
-
-
 //end portfolio
-        //Ki Ki
-    Route::get('upload_project','UploadprojectController@upload_project');
-    Route::post('upload_project','UploadprojectController@upload_project2');
-    Route::get('view_project','UploadprojectController@view_project');
+    //Ki Ki
+    Route::get('upload_project', 'UploadprojectController@upload_project');
+    Route::post('upload_project', 'UploadprojectController@upload_project2');
+    Route::get('view_project', 'UploadprojectController@view_project');
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-    Route::get('construct_send_mail/{pid}','ConstructprojectsController@send_message_form');
-    Route::get('construct_mail_view/{mid}','ConstructprojectsController@construct_message_view');
-    Route::post('construct_send_mail','ConstructprojectsController@send_message');
-    Route::get('price','PriceforitemsController@addform');
-    Route::get('add_form_for_paint','PriceforitemsController@add_form_for_paint');
-    Route::get('add_form_for_other_paint','PriceforitemsController@add_form_for_other_paint');
-    Route::get('add_form_for_new_build_paint','PriceforitemsController@add_form_for_new_build_paint');
-    Route::post('add_for_paint','PriceforitemsController@add_for_paint');
-    Route::get('edit_form_for_paint/{id}','PriceforitemsController@edit_form_for_paint');
-    Route::post('edit_for_paint/{id}','PriceforitemsController@edit_for_paint');
-    Route::post('price','PriceforitemsController@add');
+    Route::get('construct_send_mail/{pid}', 'ConstructprojectsController@send_message_form');
+    Route::get('construct_mail_view/{mid}', 'ConstructprojectsController@construct_message_view');
+    Route::post('construct_send_mail', 'ConstructprojectsController@send_message');
+    Route::get('price', 'PriceforitemsController@addform');
+    Route::get('add_form_for_paint', 'PriceforitemsController@add_form_for_paint');
+    Route::get('add_form_for_other_paint', 'PriceforitemsController@add_form_for_other_paint');
+    Route::get('add_form_for_new_build_paint', 'PriceforitemsController@add_form_for_new_build_paint');
+    Route::post('add_for_paint', 'PriceforitemsController@add_for_paint');
+    Route::get('edit_form_for_paint/{id}', 'PriceforitemsController@edit_form_for_paint');
+    Route::post('edit_for_paint/{id}', 'PriceforitemsController@edit_for_paint');
+    Route::post('price', 'PriceforitemsController@add');
     //end cp
     Route::get('business_plan_detail/{id}', 'BusinessController@business_plan_detail');
     Route::get('business_plan', 'EntroController@bussiness_plan_form');
@@ -166,28 +156,28 @@ Route::group(['prefix' => 'entra'], function () {
     Route::get('show_plans', 'PlanfrontController@show_plans');
     Route::get('buy_plan/{p}', 'PlanfrontController@buy_plan_form');
     Route::post('buy_plan', 'PlanfrontController@buy_plan');
-    Route::get('buy_plan', function(){
+    Route::get('buy_plan', function () {
         return redirect('entra/show_plans');
     });
     Route::get('reply_mail_for_bplan/{bplan_id}', 'BplanmailController@reply_mail_from_entra_form');
     Route::post('reply_mail_for_bplan/{bplan_id}', 'BplanmailController@reply_mail_from_entra');
     Route::post('send_mail_for_bplan/{bplan_id}', 'BplanmailController@send_mail_from_inves');
-    Route::get('mails/{date?}','EntramailController@see_all_mails');
-    Route::get('send_mails/{date?}','EntramailController@send_mails');
-    Route::get('received_mails/{date?}','EntramailController@received_mails');
-    Route::get('view_mail/{id}','EntramailController@view_mails');
+    Route::get('mails/{date?}', 'EntramailController@see_all_mails');
+    Route::get('send_mails/{date?}', 'EntramailController@send_mails');
+    Route::get('received_mails/{date?}', 'EntramailController@received_mails');
+    Route::get('view_mail/{id}', 'EntramailController@view_mails');
 
     //end plan
 
     //send mail for project
 
     Route::get('send_mail_for_project/{project_id}', 'ProjectmailController@send_mail_form');
-    Route::post('send_mail_for_project/{project_id}','ProjectmailController@send_mail');
-    Route::get('view_mail_for_project/{mail_id}','ProjectmailController@view_mail');
-    Route::get('reply_mail_for_project/{mail_id}','ProjectmailController@reply_mail');
+    Route::post('send_mail_for_project/{project_id}', 'ProjectmailController@send_mail');
+    Route::get('view_mail_for_project/{mail_id}', 'ProjectmailController@view_mail');
+    Route::get('reply_mail_for_project/{mail_id}', 'ProjectmailController@reply_mail');
     Route::get('pmail/all_mails/{date?}', 'ProjectmailController@all_mails');
-    Route::get('pmail/psendmails/{date?}','ProjectmailController@send_mails_list');
-    Route::get('pmail/precvmails/{date?}','ProjectmailController@project_received_mails');
+    Route::get('pmail/psendmails/{date?}', 'ProjectmailController@send_mails_list');
+    Route::get('pmail/precvmails/{date?}', 'ProjectmailController@project_received_mails');
 
 
     //end mail for project
@@ -264,24 +254,23 @@ Route::group(['prefix' => 'entra'], function () {
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // start show_case
-Route::group(['prefix'=>'show_case'],function(){
+Route::group(['prefix' => 'show_case'], function () {
 ########################################################
-Route::get('/', 'ShowcaseController@index');###
+    Route::get('/', 'ShowcaseController@index');###
 #######################################################
-Route::get('add', 'ShowcaseController@add');
+    Route::get('add', 'ShowcaseController@add');
 
-Route::post('add', 'ShowcaseController@save');
+    Route::post('add', 'ShowcaseController@save');
 
-Route::get('delete/{id}', 'ShowcaseController@delete');
+    Route::get('delete/{id}', 'ShowcaseController@delete');
 
-Route::get('edit/{id}', 'ShowcaseController@edit');
+    Route::get('edit/{id}', 'ShowcaseController@edit');
 
-Route::post('edit/{id}', 'ShowcaseController@update');
+    Route::post('edit/{id}', 'ShowcaseController@update');
 
 });
 Route::get('entra/other_company_detail/{user_id}/show_case/products', 'ShowcaseController@others');
 Route::get('inves/other_company_detail/{user_id}/show_case/products', 'ShowcaseController@others');
-
 
 
 // end show_case
@@ -362,13 +351,13 @@ Route::post('design/edit/{id}', 'DesignController@update');
 
 //Route::get('construct', 'ConstructController@index');
 //Route::get('');
-Route::group(['prefix' => 'construct'], function (){
-   Route::get('/', 'ConstructController@index');
-   Route::get('/add_construct', 'ConstructController@add');
-   Route::post('add_construct', 'ConstructController@save');
-   Route::get('/delete/{id}', 'ConstructController@delete');
-   Route::get('edit/{id}', 'ConstructController@edit');
-   Route::post('edit/{id}', 'ConstructController@update');
+Route::group(['prefix' => 'construct'], function () {
+    Route::get('/', 'ConstructController@index');
+    Route::get('/add_construct', 'ConstructController@add');
+    Route::post('add_construct', 'ConstructController@save');
+    Route::get('/delete/{id}', 'ConstructController@delete');
+    Route::get('edit/{id}', 'ConstructController@edit');
+    Route::post('edit/{id}', 'ConstructController@update');
 });
 // end construct
 
@@ -376,41 +365,41 @@ Route::group(['prefix' => 'construct'], function (){
 
 ##KI KI### admin
 //dashboard
-Route::get('/dashboard','ProjectController@index');
+Route::get('/dashboard', 'ProjectController@index');
 //all projects
-Route::get('show_all_projects','ProjectController@show_all_projects');
-Route::get('projects/months/{id}','ProjectController@projects_by_month');
-Route::get('projects/detail/{id}','ProjectController@projects_detail');
-Route::get('projects/project/detail/{id}','ProjectController@projects_by_month');
-Route::get('projects/months/show_detail/{id}','ProjectController@projects_detail');
-Route::get('show_detail/{id}','ProjectController@projects_detail');
-Route::get('/projects/project/detail/show_detail/{id}','ProjectController@projects_detail');
+Route::get('show_all_projects', 'ProjectController@show_all_projects');
+Route::get('projects/months/{id}', 'ProjectController@projects_by_month');
+Route::get('projects/detail/{id}', 'ProjectController@projects_detail');
+Route::get('projects/project/detail/{id}', 'ProjectController@projects_by_month');
+Route::get('projects/months/show_detail/{id}', 'ProjectController@projects_detail');
+Route::get('show_detail/{id}', 'ProjectController@projects_detail');
+Route::get('/projects/project/detail/show_detail/{id}', 'ProjectController@projects_detail');
 //confirmed projects
-Route::get('projects/confirmed','ProjectController@confirmed_projects');
-Route::get('confirmed_projects/months/{id}','ProjectController@confirmed_projects_by_month');
-Route::get('confirmed_projects/months/confirmed_projects/months/project/detail/{id}','ProjectController@projects_confirmed_detail');
+Route::get('projects/confirmed', 'ProjectController@confirmed_projects');
+Route::get('confirmed_projects/months/{id}', 'ProjectController@confirmed_projects_by_month');
+Route::get('confirmed_projects/months/confirmed_projects/months/project/detail/{id}', 'ProjectController@projects_confirmed_detail');
 //pending projects
-Route::get('projects/pending','ProjectController@pending_projects');
-Route::get('projects/pending_detail/{id}','ProjectController@projects_pending_detail');
-Route::get('pending_projects/months/{id}','ProjectController@pending_projects_by_month');
-Route::get('pending_projects/months/pending_detail/{id}','ProjectController@projects_pending_detail');
-Route::get('/projects/projects/project/detail/{id}','ProjectController@projects_confirmed_detail');
+Route::get('projects/pending', 'ProjectController@pending_projects');
+Route::get('projects/pending_detail/{id}', 'ProjectController@projects_pending_detail');
+Route::get('pending_projects/months/{id}', 'ProjectController@pending_projects_by_month');
+Route::get('pending_projects/months/pending_detail/{id}', 'ProjectController@projects_pending_detail');
+Route::get('/projects/projects/project/detail/{id}', 'ProjectController@projects_confirmed_detail');
 //requested projects to users by companies 
 
-Route::get('/ee',function(){
+Route::get('/ee', function () {
     $ok = DB::connection('mysql_service')
-                ->table('request')
-                ->where([['post_uploader_id', '=', '59']])
-                ->get(); 
-    $i=0;
+        ->table('request')
+        ->where([['post_uploader_id', '=', '59']])
+        ->get();
+    $i = 0;
     echo "<h1>Post_uploader_id : 59 </h1><br>The requested companies' ids are <br> ";
-    foreach($ok as $k){
+    foreach ($ok as $k) {
         $i++;
         $company = DB::table('company')
-                        ->where([['user_id', '=', $k->requester_id]])
-                        ->first(); ;
-        echo $i.". Company ID : ".$k->requester_id."<br> Company Name : ".$company->name;
-        echo "<br>requested time : ".\Carbon\Carbon::createFromTimeStamp(strtotime($k->created_at))->diffForHumans()."<hr>";
+            ->where([['user_id', '=', $k->requester_id]])
+            ->first();;
+        echo $i . ". Company ID : " . $k->requester_id . "<br> Company Name : " . $company->name;
+        echo "<br>requested time : " . \Carbon\Carbon::createFromTimeStamp(strtotime($k->created_at))->diffForHumans() . "<hr>";
     }
 });
 
@@ -429,7 +418,7 @@ Route::get('/plan/edit/{id}', 'PlansController@edit_plan_form');
 Route::get('/plans_detail/view/{id}', 'PlansController@detail');
 Route::get('/add_plan', 'PlansController@add_plan_form');
 Route::post('/add_plan', 'PlansController@add_plan');
-Route::post('/plan/edit/{id}','PlansController@edit');
+Route::post('/plan/edit/{id}', 'PlansController@edit');
 
 
 Route::get('/news', 'NewsController@index');
@@ -443,7 +432,6 @@ Route::post('tenders/edit/{id}', 'TenderController@update');
 
 
 Route::post('tenders/upload', 'TenderController@save');
-
 
 
 Route::get('events', 'EventsController@index');
@@ -554,7 +542,7 @@ Route::get('test', function () {
 // operation
 
 
-Route::group(['prefix' => 'operation'], function(){
+Route::group(['prefix' => 'operation'], function () {
     Route::get('/', 'OperationController@index');
     Route::get('/view/{id}', 'OperationController@view');
     Route::get('/add', 'OperationController@add');
@@ -590,12 +578,11 @@ Route::post('free_plan/edit/{id}', 'FreePlanController@update');
 
 //construct plan
 
-Route::get('construct_plan','ConstructplanadminController@construct_plan_all');
-Route::get('edit_cplan/{id}','ConstructplanadminController@edit_cplan');
-Route::post('edit_cplan/{id}','ConstructplanadminController@edit_cplan_save');
+Route::get('construct_plan', 'ConstructplanadminController@construct_plan_all');
+Route::get('edit_cplan/{id}', 'ConstructplanadminController@edit_cplan');
+Route::post('edit_cplan/{id}', 'ConstructplanadminController@edit_cplan_save');
 
 //end construct plan
-
 
 
 // Rating
@@ -604,25 +591,25 @@ Route::post('rating', 'RatingController@rate');
 Route::get('company_detail/{id}/rating', 'EntroController@rating');
 
 // end rating
-Route::get('gen_psw',function(){
+Route::get('gen_psw', function () {
     return bcrypt('234567');
 });
 // end rating
-Route::get('mail','ConfirmserviceController@test_mail');
-Route::get('about_us',function(){
+Route::get('mail', 'ConfirmserviceController@test_mail');
+Route::get('about_us', function () {
     return view('user.entra.about_us');
 });
 //for plan
-Route::get('companies','CompanyController@get_all_companies');
-Route::get('companies/detail/{id}','CompanyController@com_detail');
-Route::get('companies/add_plan/{id}','CompanyController@add_plan');
-Route::post('companies/add_plan','CompanyController@add_plan_save');
-Route::get('companies/see_projects/{user_id}','CompanyController@see_projects');
+Route::get('companies', 'CompanyController@get_all_companies');
+Route::get('companies/detail/{id}', 'CompanyController@com_detail');
+Route::get('companies/add_plan/{id}', 'CompanyController@add_plan');
+Route::post('companies/add_plan', 'CompanyController@add_plan_save');
+Route::get('companies/see_projects/{user_id}', 'CompanyController@see_projects');
 
 //end plan
 //construct projects
-Route::get('get_project','ConstructController@get_project_form');
-Route::post('get_project','ConstructController@get_project');
+Route::get('get_project', 'ConstructController@get_project_form');
+Route::post('get_project', 'ConstructController@get_project');
 //end construct projects
 //block function
 Route::get('companies/block/{id}', 'CompanyController@block');
@@ -630,71 +617,61 @@ Route::get('companies/unblock/{id}', 'CompanyController@unblock');
 Route::get('block', 'Auth\BlockUserController@blockPage');
 //end block function
 //without_auth
-Route::get('see_project_without_auth',function(){
+Route::get('see_project_without_auth', function () {
     return view('without_auth.projects');
 });
-Route::get('usage',function(){
+Route::get('usage', function () {
     return view('usage.projects');
 });
-Route::get('detail_without_auth/{id}','ConstructprojectsController@detail_without_auth');
-Route::get('entra/invite_com','ConstructprojectsController@invite_com');
-Route::get('entra/detail_invite_project/{id}','ConstructprojectsController@detail_invite_project');
-Route::get('entra/detail_project_without_request/{id}','ConstructprojectsController@detail_project_without_request');
+Route::get('detail_without_auth/{id}', 'ConstructprojectsController@detail_without_auth');
+Route::get('entra/invite_com', 'ConstructprojectsController@invite_com');
+Route::get('entra/detail_invite_project/{id}', 'ConstructprojectsController@detail_invite_project');
+Route::get('entra/detail_project_without_request/{id}', 'ConstructprojectsController@detail_project_without_request');
 
 //end without_auth
 
 
 //close
-Route::post('close_project','CloseprojectController@close_project');
-Route::post('open_project','CloseprojectController@open_project');
+Route::post('close_project', 'CloseprojectController@close_project');
+Route::post('open_project', 'CloseprojectController@open_project');
 //end close project
 
 
 //portfolio
 
 
-
-
-
-
-
-
-Route::post('store_fcm','FirebasemessageController@store');
-Route::get('change_psw/{email}',function($email){
-    $new_password=bcrypt('123456');
-    if(\Illuminate\Support\Facades\DB::table('users')->where('email',$email)->update(['password'=>$new_password])){
+Route::post('store_fcm', 'FirebasemessageController@store');
+Route::get('change_psw/{email}', function ($email) {
+    $new_password = bcrypt('123456');
+    if (\Illuminate\Support\Facades\DB::table('users')->where('email', $email)->update(['password' => $new_password])) {
         return 'nice ommo';
-    }else{
+    } else {
         return 'check your email';
     }
 
 });
 
 
+Route::post('store_token', 'FirebasemessageController@store_token');
 
 
-
-
-Route::post('store_token','FirebasemessageController@store_token');
-
-
-Route::get('send_noti','FirebasemessageController@sendnoti');
+Route::get('send_noti', 'FirebasemessageController@sendnoti');
 
 //Recommend system
-Route::get('recommend1','RecommendController@recommend_form1');
-Route::post('recommend2','RecommendController@recommend_form2');
-Route::post('recommend2_1','RecommendController@recommend_form2_1');
-Route::post('recommend3','RecommendController@recommend_form3');
-Route::post('recommend4','RecommendController@recommend_form4');
-Route::post('recommend5','RecommendController@recommend_form5');
-Route::post('recommend6','RecommendController@recommend_form6');
-Route::post('recommend7','RecommendController@recommend_form7');
-Route::post('recommend8','RecommendController@recommend_form8');
-Route::post('recommend9','RecommendController@recommend_form9');
-Route::post('recommend10','RecommendController@recommend_form10');
-Route::post('recommend11','RecommendController@recommend_form11');
-Route::post('recommend12','RecommendController@recommend_form12');
-Route::post('recommend13','RecommendController@recommend_form13');
-Route::post('recommend14','RecommendController@recommend_form14');
+Route::get('recommend1', 'RecommendController@recommend_form1');
+Route::post('recommend2', 'RecommendController@recommend_form2');
+Route::post('recommend2_1', 'RecommendController@recommend_form2_1');
+Route::post('recommend3', 'RecommendController@recommend_form3');
+Route::post('recommend4', 'RecommendController@recommend_form4');
+Route::post('recommend5', 'RecommendController@recommend_form5');
+Route::post('recommend6', 'RecommendController@recommend_form6');
+Route::post('recommend7', 'RecommendController@recommend_form7');
+Route::post('recommend8', 'RecommendController@recommend_form8');
+Route::post('recommend9', 'RecommendController@recommend_form9');
+Route::post('recommend10', 'RecommendController@recommend_form10');
+Route::post('recommend11', 'RecommendController@recommend_form11');
+Route::post('recommend12', 'RecommendController@recommend_form12');
+Route::post('recommend13', 'RecommendController@recommend_form13');
+Route::post('recommend14', 'RecommendController@recommend_form14');
 
 

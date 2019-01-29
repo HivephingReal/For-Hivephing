@@ -210,9 +210,7 @@ tr:nth-child(odd) {
  }
     
 .notification-item {
- padding:10px;
- margin:5px;
- background:#ccc;
+ background:white;
  border-radius:4px;
  }
 

@@ -1,7 +1,7 @@
 @extends('layouts.plane')
 
 @section('body')
-<link rel = "stylesheet" href = "{{ asset('css/kiki.css') }}">{{-- ki fixed here --}}
+    <link rel="stylesheet" href="{{ asset('css/kiki.css') }}">{{-- ki fixed here --}}
     <div class="clearfix"></div>
     <div class="">
 
@@ -13,78 +13,92 @@
                         HivePhing </h3>
                 </div>
             </div>
-             <div class="col-xs-12 col-sm-10 col-md-10">
-                <div class="col-xs-12 col-sm-12 col-md-2">&nbsp;</div>
-                <div class="col-xs-12 col-sm-12 col-md-8" style="color:white;text-align: center;">
-                    <div class="top_m" style="">
+            {{--<div class="col-xs-12 col-sm-10 col-md-10">--}}
+            {{--<div class="col-xs-12 col-sm-12 col-md-2">&nbsp;</div>--}}
+            {{--<div class="col-xs-12 col-sm-12 col-md-8" style="color:white;text-align: center;">--}}
+            {{--<div class="top_m" style="">--}}
+            {{--<div class="col-xs-4  col-sm-4 col-md-4"><a href="{{url('about_us')}}"--}}
+            {{--style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">About--}}
+            {{--Us--}}{{-- ki fixed here --}}{{-- </a></div>--}}
+            {{--<div class="col-xs-4  col-sm-4 col-md-4" ><a href="{{url('business_news')}}"--}}
+            {{--style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">News</a>--}}
+            {{--</div>--}}
+            {{--<div class="col-xs-4">--}}
+            {{--<button onclick="change_font('z')" class="btn btn-small btn-info " style="float:right;">zawgyi</button>--}}
+            {{--<button onclick="change_font('u')" class="btn btn-small btn-warning green">Uni</button>--}}
+            {{--</div>--}}
+            {{--<div class="col-xs-4">--}}
+
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-xs-12 col-sm-12 col-md-2">&nbsp;</div>--}}
+            {{--</div>--}}
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <div class="col-xs-12 col-sm-12 col-md-10" style="color:white;text-align: center;">
+                    <div class="top_m col-md-6" style="">
+                        <div class="col-xs-4  col-sm-4 col-md-4">
+                            <div class="dropdown">
+                                <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                    <i class="icon-bell"></i>
+                                    <span class="badge" id="noti">
+                                        @php
+                                            $noti_data = \Illuminate\Support\Facades\DB::table('notification')->where([['for_whom_user_id','=',\Illuminate\Support\Facades\Auth::user()->id],['read_or_un','=','unread']]);
+                                        @endphp
+                                        {{$noti_data->count()}}
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu notifications">
+                                    <div role="menu" aria-labelledby="dLabel">
+                                        <div style="margin-top:22px;margin-left:12px;margin-right:12px;">
+                                            <div class="menu-title"
+                                                 style="font-size:16px;font-weight: 700;color:#62878f;">You
+                                                have {{$noti_data->count()}} notifications
+                                            </div>
+                                            <div class="menu-title pull-right">View all</div>
+                                        </div>
+
+                                        <div class="notifications-wrapper">
+                                            @foreach($noti_data->get() as $nd)
+                                                @php
+                                                    $prdatafornoti=\Illuminate\Support\Facades\DB::connection('mysql_service')->table('for_repair')->where('id',$nd->pid)->first();
+                                                @endphp
+                                                <a class="content" href="#">
+                                                    <div class="notification-item">
+                                                        {{--<h4 class="item-title">{{$prdatafornoti->title}}</h4>--}}
+                                                        <br><br>
+                                                        @if($nd->status =='confirmed_by_op')
+                                                            New Project
+                                                        @endif
+                                                            <div class="item-info"
+                                                               style="font-size: 13px;color:#888;">{{str_limit($prdatafornoti->description,'150','....')}}</div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+
+                                        </div>
+                                        <li class="divider"></li>
+                                        <div class="notification-footer"><h4 class="menu-title">View all</h4></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-4  col-sm-4 col-md-4"><a href="{{url('about_us')}}"
                                                                     style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">About
-                                Us{{-- ki fixed here --}} </a></div>
-                        <div class="col-xs-4  col-sm-4 col-md-4" ><a href="{{url('business_news')}}"
-                                                                    style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">News</a>
+                                Us </a><a href="{{url('business_news')}}"
+                                          style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">News</a>
                         </div>
                         <div class="col-xs-4">
-                            <button onclick="change_font('z')" class="btn btn-small btn-info " style="float:right;">zawgyi</button>
-                            <button onclick="change_font('u')" class="btn btn-small btn-warning green">Uni</button>
+                            <button onclick="change_font('z')" class="btn btn-small btn-info " style="float:right;">
+                                zawgyi
+                            </button>
+                            <button onclick="change_font('u')" class="btn btn-small btn-warning green">Unicode</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-2">&nbsp;</div>
-
+                <div class="col-xs-12 col-sm-12 col-md-2">&nbsp;
+                </div>
             </div>
-            {{--<div class="col-xs-12 col-sm-10 col-md-10">--}}
-                {{--<div class="col-xs-12 col-sm-12 col-md-10" style="color:white;text-align: center;">--}}
-                    {{--<div class="top_m col-md-6" style="">--}}
-                        {{--<div class="col-xs-4  col-sm-4 col-md-4">--}}
-                        {{--<div class="dropdown">--}}
-                            {{--<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">--}}
-                              {{--<i class="icon-bell"></i>--}}
-                              {{--<span class="badge">3</span>--}}
-                            {{--</a>--}}
-                            {{--<div  class="dropdown-menu notifications">--}}
-                            {{--<ul role="menu" aria-labelledby="dLabel">--}}
-                              {{--<div class="notification-heading"><h4 class="menu-title">Notifications</h4><h4 class="menu-title pull-right">View all</h4>--}}
-                              {{--</div>--}}
-                              {{--<li class="divider"></li>--}}
-                             {{--<div class="notifications-wrapper">--}}
-                               {{--<a class="content" href="#">--}}
-                                 {{--<div class="notification-item">--}}
-                                  {{--<h4 class="item-title">ေခါင္းစဥ္</h4>--}}
-                                  {{--<p class="item-info">စာသားနဲနဲ စာသားနဲနဲ စာသားနဲနဲ စာသားနဲနဲ</p>--}}
-                                  {{--<button>View</button>--}}
-                                {{--</div>--}}
-                              {{--</a>--}}
-                               {{--<a class="content" href="#">--}}
-                                {{--<div class="notification-item">--}}
-                                  {{--<h4 class="item-title">Title</h4>--}}
-                                  {{--<p class="item-info">A little Sar A little Sar A little Sar A little Sar</p>--}}
-                                  {{--<button>View</button>--}}
-                                {{--</div>--}}
-                              {{--</a>--}}
-                               {{--<a class="content" href="#">--}}
-                                {{--<div class="notification-item">--}}
-                                  {{--<h4 class="item-title">Title</h4>--}}
-                                  {{--<p class="item-info">စာသားနည္းနည္း စာသားနည္းနည္း စာသားနည္းနည္း စာသားနည္းနည္း </p>--}}
-                                {{--</div>--}}
-                              {{--</a>--}}
-                             {{--</div>--}}
-                              {{--<li class="divider"></li>--}}
-                              {{--<div class="notification-footer"><h4 class="menu-title">View all</h4></div>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                        {{--<div class="col-xs-4  col-sm-4 col-md-4"><a href="{{url('about_us')}}" style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">About Us </a><a href="{{url('business_news')}}" style="text-align: center;white-space: nowrap;color:white;font-weight:bolder;">News</a>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-xs-4">--}}
-                            {{--<button onclick="change_font('z')" class="btn btn-small btn-info " style="float:right;">zawgyi</button>--}}
-                            {{--<button onclick="change_font('u')" class="btn btn-small btn-warning green">Unicode</button>--}}
-                        {{--</div>--}}
-                      {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-xs-12 col-sm-12 col-md-2">&nbsp;--}}
-                {{--</div>--}}
-            {{--</div>--}}
         </div>
         <div class="col-xs-12">
             <div class="topnavs" id="myTopnav">
@@ -107,10 +121,9 @@
 
                     </div>
                 </div>
-                <a href="{{url('entra_dashboard')}}" >Dashboard</a>
+                <a href="{{url('entra_dashboard')}}">Dashboard</a>
                 @php
                     $company_count=DB::table('company')->where('user_id',Auth::user()->id)->count();
-
                     if($company_count > 0){
                     $company_data=DB::table('company')->where('user_id',Auth::user()->id)->first();
                     if($company_data->status == 3){
@@ -133,14 +146,14 @@
                 {{--<a href="{{url('entra/add_form_for_paint')}}">Prices</a>--}}
                 <a href="{{url('entra/construct_projects')}}">Construct Projects</a>
                 {{--<div class="dropdowns">--}}
-                    {{--<button class="dropbtns">Mail Inbox--}}
-                        {{--<i class="fa fa-caret-down"></i>--}}
-                    {{--</button>--}}
-                    {{--<div class="dropdowns-content">--}}
-                        {{--<a href="{{url('entra/mails')}}">Business Plan's Mail</a>--}}
-                        {{--<a href="{{url('entra/pmail/all_mails')}}">Project's Mail</a>--}}
+                {{--<button class="dropbtns">Mail Inbox--}}
+                {{--<i class="fa fa-caret-down"></i>--}}
+                {{--</button>--}}
+                {{--<div class="dropdowns-content">--}}
+                {{--<a href="{{url('entra/mails')}}">Business Plan's Mail</a>--}}
+                {{--<a href="{{url('entra/pmail/all_mails')}}">Project's Mail</a>--}}
 
-                    {{--</div>--}}
+                {{--</div>--}}
                 {{--</div>--}}
 
                 <a href="{{url('entra/portfolio/list')}}">Portfolio</a>
@@ -161,7 +174,8 @@
                     } else {
                         x.className = "topnavs";
                     }
-                };
+                }
+                ;
             </script>
         </div>
 
@@ -236,9 +250,7 @@
                          class="footer_img"/>
                 </div>
                 <div class="col-xs-1 col-sm-3">
-                    &nbsp;
                 </div>
-
             </div>
             <div class="col-xs-12"
                  style="text-align: center;margin-bottom:22px;font-weight:bolder;font-size:15px;color:#345884;margin-top:12px;">

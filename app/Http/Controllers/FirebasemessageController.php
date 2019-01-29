@@ -29,7 +29,7 @@ class FirebasemessageController extends FirebasehelperController
         }else{
             FirebaseModel::create(['user_id'=>$user_id,'token'=>$token,'created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);
         }
-        return response()->json(['data'=>'return from server']);
+        return response()->json(['data'=>Auth::user()->id]);
 
     }
     public function sendnoti(){

@@ -200,7 +200,7 @@ p {
                          <i class="fa fa-map-marker"></i>&nbsp;{{$d->address}}
                     </p>
                     <p style="margin-bottom: 0px !important;">
-                        <a href="{{ url('/company_detail/'.$d->id.'/rating') }}" class="btn green-seagreen pull-right" style="margin-top: 20px;">
+                        <a href="void" class="btn green-seagreen pull-right" style="margin-top: 20px;">
                             Rating Point :
                             @if($rate == null)
                                 0

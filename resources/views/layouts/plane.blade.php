@@ -13,7 +13,7 @@
     <title>
         Hive Phing
     </title>
-    <link rel="shortcut icon" href="{{{ asset('images/logo/logo.png') }}}">
+    <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports"
@@ -30,11 +30,14 @@
           type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -')}}>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="{{asset('global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{asset('global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{asset('global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet"
+          type="text/css"/>
     <!-- END PAGE LEVEL PLUGINS -->
     <link href="{{asset('global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet"
           type="text/css"/>
@@ -54,7 +57,7 @@
     <link href="{{asset('layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/custom.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/jquery.bxslider.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/jquery.bxslider.css')}}" rel="stylesheet"/>
     <!-- END THEME LAYOUT STYLES -->
 
     <link href="{{asset('css/bootstrap-imageupload.css')}}" rel="stylesheet">
@@ -64,25 +67,36 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/github-light.css')}}">
     <link rel="shortcut icon" href="favicon.ico"/>
     <style>
-        .red{
-            color:red;
+        .red {
+            color: red;
         }
-        .input-title{
-            font-weight:bold;color:#888;
+
+        .input-title {
+            font-weight: bold;
+            color: #888;
         }
-        .pannel-title{
-            font-weight:bold;color:#888;margin:22px;font-size:18px;
+
+        .pannel-title {
+            font-weight: bold;
+            color: #888;
+            margin: 22px;
+            font-size: 18px;
         }
-        .detail-title{
-           color:lightseagreen;font-weight:bolder;font-size:16px;
+
+        .detail-title {
+            color: lightseagreen;
+            font-weight: bolder;
+            font-size: 16px;
         }
+
         @font-face {
-            font-family:'Ours-Unicode';
-            src:local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
+            font-family: 'Ours-Unicode';
+            src: local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
         }
+
         @font-face {
-            font-family:'Zawgyi-One';
-            src:local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
+            font-family: 'Zawgyi-One';
+            src: local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
         }
     </style>
     <style>
@@ -90,9 +104,10 @@
         .topnavs {
             overflow: hidden;
             background-color: #2e4765;
-            float:right;
+            float: right;
 
         }
+
         .background_lyrics {
             color: #eede2c;
             font-size: 33px;
@@ -142,7 +157,7 @@
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -174,6 +189,7 @@
                 display: none;
 
             }
+
             .dropdowns-content a:hover {
                 background-color: #ddd;
                 color: black;
@@ -187,31 +203,41 @@
             .topnavs {
                 overflow: hidden;
                 background-color: #2e4765;
-                width:100%;
+                width: 100%;
             }
 
             .topnavs a.icon {
                 display: block;
-                float:right;
+                float: right;
             }
-
 
         }
 
         @media screen and (max-width: 600px) {
-            .topnavs.responsive {position: relative;}
+            .topnavs.responsive {
+                position: relative;
+            }
+
             .topnavs.responsive .icon {
                 position: absolute;
                 right: 0;
                 top: 0;
             }
+
             .topnavs.responsive a {
                 float: none;
                 display: block;
                 text-align: left;
             }
-            .topnavs.responsive .dropdowns {float: none;}
-            .topnavs.responsive .dropdowns-content {position: relative;}
+
+            .topnavs.responsive .dropdowns {
+                float: none;
+            }
+
+            .topnavs.responsive .dropdowns-content {
+                position: relative;
+            }
+
             .topnavs.responsive .dropdowns .dropbtns {
                 display: block;
                 width: 100%;
@@ -308,12 +334,13 @@
                 background-size: 100% 100%;
                 height: 433px;
             }
+
             .bgs2 {
-                  color: white;
-                  background-repeat: no-repeat;
-                  background-size: 100% 100%;
-                  height: 433px;
-              }
+                color: white;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                height: 433px;
+            }
 
             .latest {
                 margin-left: 22px;
@@ -406,13 +433,13 @@
         window.location.assign(link);
     }
     ;
-    function change_font(name){
-           if(name == 'z') {
-               document.getElementById('cf').style.fontFamily = "Zawgyi-One";
-           }else{
-               document.getElementById('cf').style.fontFamily = "Ours-Unicode";
+    function change_font(name) {
+        if (name == 'z') {
+            document.getElementById('cf').style.fontFamily = "Zawgyi-One";
+        } else {
+            document.getElementById('cf').style.fontFamily = "Ours-Unicode";
 
-           }
+        }
 
 
     }
@@ -427,8 +454,10 @@
 <!-- END CORE PLUGINS -->
 <script src="{{asset('global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('global/plugins/jquery-validation/js/additional-methods.min.js')}}"
+        type="text/javascript"></script>
+<script src="{{asset('global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"
+        type="text/javascript"></script>
 <script src="{{asset('global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js')}}" type="text/javascript"></script>
 <script src="{{asset('global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js')}}" type="text/javascript"></script>
 <script src="{{asset('global/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
@@ -498,18 +527,18 @@
     })
 </script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.bxslider').bxSlider({
             mode: 'horizontal',
             moveSlides: 1,
             slideMargin: 20,
-            auto:true,
+            auto: true,
             infiniteLoop: true,
             slideWidth: 400,
             minSlides: 2,
             maxSlides: 5,
             speed: 800,
-            pager:false
+            pager: false
         });
     });
 </script>
@@ -517,18 +546,22 @@
 <script>
     $(document).ready(function () {
         $("#country").click(function () {
-            var id= $("#country option:selected").val();
-            $.get("https://hivephing.com/get_cities_ajax/"+id, function (data) {
+            var id = $("#country option:selected").val();
+            $.get("https://hivephing.com/get_cities_ajax/" + id, function (data) {
                 console.log(data.data);
                 $("#cities").children().remove();
                 $('#cities').prop("disabled", false);
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#cities').append("<option value="+ data.data[i].id +">"+ data.data[i].name +"</option>");
+                    $('#cities').append("<option value=" + data.data[i].id + ">" + data.data[i].name + "</option>");
                 }
                 var options = $('#cities option');
-                var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
-                arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
-                options.each(function(i, o) {
+                var arr = options.map(function (_, o) {
+                    return {t: $(o).text(), v: o.value};
+                }).get();
+                arr.sort(function (o1, o2) {
+                    return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0;
+                });
+                options.each(function (i, o) {
                     o.value = arr[i].v;
                     $(o).text(arr[i].t);
                 });
@@ -540,19 +573,19 @@
 </script>
 
 {{--<script>--}}
-    {{--var $imageupload = $('.imageupload');--}}
-    {{--$imageupload.imageupload();--}}
+{{--var $imageupload = $('.imageupload');--}}
+{{--$imageupload.imageupload();--}}
 {{--</script>--}}
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#photo').imageReader({
             renderType: 'canvas',
-            onload: function(canvas) {
+            onload: function (canvas) {
                 var ctx = canvas.getContext('2d');
                 ctx.fillStyle = "orange";
                 ctx.font = "12px Verdana";
-                ctx.fillText("Filename : "+ this.name, 10, 20, canvas.width - 10);
+                ctx.fillText("Filename : " + this.name, 10, 20, canvas.width - 10);
                 $(canvas).css({
                     width: '100%',
                     height: '100%',
@@ -566,9 +599,13 @@
 <script>
     //to sort cities name
     var options = $('#cities option');
-    var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
-    arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
-    options.each(function(i, o) {
+    var arr = options.map(function (_, o) {
+        return {t: $(o).text(), v: o.value};
+    }).get();
+    arr.sort(function (o1, o2) {
+        return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0;
+    });
+    options.each(function (i, o) {
         o.value = arr[i].v;
         $(o).text(arr[i].t);
     });
@@ -579,6 +616,8 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 {{--<script src="https://localhost/comreal/HivePhing/resources/views/layouts/firebase-messaging-sw.js"></script>--}}
+
+
 <script>
     // TODO: Replace with your project's customized code snippet
     var config = {
@@ -593,15 +632,17 @@
 
     messaging = firebase.messaging();
     messaging.usePublicVapidKey('BHukpDQk_W_mBxXd1vekcQXVpjWm99ToopRdcp8X4AekrIakuAMRAeP1Ns7JsFiPui_PT-2Bdj1ZpUywEtmsxK0');
-
-    messaging.requestPermission().then(function() {
+    gid = '';//global var fro userid to use everywhere
+    messaging.requestPermission().then(function () {
         console.log('Notification permission granted.');
         // TODO(developer): Retrieve an Instance ID token for use with FCM.
-        messaging.getToken().then(function(currentToken) {
+        messaging.getToken().then(function (currentToken) {
             if (currentToken) {
-                console.log('token:'+currentToken);
-                $.post("https://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
+                console.log('token:' + currentToken);
+                $.post("http://localhost/realfinal/hivephing/store_token", {token: currentToken}, function (data, status) {
                     console.log(data);
+                    gid = data.data;
+                    console.log('gg' + gid);
                 });
 
             } else {
@@ -611,24 +652,45 @@
                 updateUIForPushPermissionRequired();
                 setTokenSentToServer(false);
             }
-        }).catch(function(err) {
+        }).catch(function (err) {
         });
         // ...
-        }).catch(function(err) {
+    }).catch(function (err) {
         console.log('Unable to get permission to notify.', err);
     });
-    messaging.onMessage(function(payload) {
+    messaging.onMessage(function (payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("https://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
-            console.log(data);
+        messaging.getToken().then(function (currentToken) {
+            if (currentToken) {
+                $.get("http://localhost/realfinal/hivephing/entra/get_noti/" + gid, function (data, status) {
+                    document.getElementById('noti').innerHTML = data.count;
+                    console.log(data);
+                });
+            }
         });
-        $(".modal-title").html("<h3 style='font-weight:bold'>"+payload.notification.title+"</h3>");
-        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='https://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-title").html("<h3 style='font-weight:bold'>" + payload.notification.title + "</h3>");
+        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
         // [START_EXCLUDE]
         // Update the UI to include the received message.
         // [END_EXCLUDE]
     });
 </script>
+
+
+<script>
+    //when user click noti button
+
+    $("#dLabel").click(function () {
+        $.get("http://localhost/realfinal/hivephing/entra/clear_noti/" + gid, function (data, status) {
+            document.getElementById('noti').innerHTML = 0;
+            console.log(data);
+        });
+    });
+
+
+</script>
+
+
 </html>

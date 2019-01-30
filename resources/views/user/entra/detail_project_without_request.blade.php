@@ -85,11 +85,11 @@
         <h1 class="page-title page_title">
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
-            Project Detail <span class="pannel-title">Upload By
+            Project Detail <span class="pannel-title"><!-- Upload By
                 @php
                     $user=DB::connection('mysql_service')->table('users')->where('id',$data->user_id)->first();
                 @endphp
-                {{ $user->name }}
+                {{ $user->name }} -->
                 @if($data->confirm != 'done')
                     <span class="label label-warning"> Open </span>
                 @else
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="col-xs-12 col-sm-12 col-md-12" style="height:auto;">
-                                    <strong>{{$data->name}}</strong> <br/>
+                                   <!--  <strong>{{$data->name}}</strong> <br/> -->
                                     {!! $data->description !!}
                                     <br>
                                 </div>

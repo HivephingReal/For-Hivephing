@@ -23,26 +23,24 @@ header('Content-Type:text/html');
             <div class="col-md-12">
                 <!-- Advanced Tables -->
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-
-                    </div>
+                    <div class="panel-heading"></div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th> No</th>
+                                    <th class="text-center">No</th>
                                     <th class="text-center">Name</th>
-                                    <th class="text-center">phone</th>
-                                    <th class="text-center">DATE</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Date</th>
                                     <th class="text-center">Quotation</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($data as $d)
                                     <tr>
-                                        <td>{{$d->id}}
+                                        <td>
+                                            {{$d->id}}
                                         </td>
                                         <td>
                                             <?php

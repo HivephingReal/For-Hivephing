@@ -64,9 +64,9 @@ class ServiceController extends Controller
                 ->where([['op_id', auth()->guard('admin')->user()->id], ['id', $id]])->first();
             
             $req_com = DB::connection('mysql_service')
-            ->table('request')
-            ->where([['post_id', '=', $get_pending->post_id]])
-            ->get(); 
+                        ->table('request')
+                        ->where([['post_id', '=', $get_pending->post_id]])
+                        ->get(); 
         }
 
        return view('for_op.detail',['data'=>$get_pending, 'req_com'=> $req_com]);

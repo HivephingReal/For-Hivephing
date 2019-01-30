@@ -3,7 +3,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
 ?>
 @extends('layout.master')
-@section('title','Pending')
+@section('title','Service')
 @section('content')
     @if(sizeof($data)==0)
 
@@ -22,11 +22,9 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         @if(preg_match('/confirmed_service/',url()->current()))
-                            Confirm Table
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
+                            Confirm Table &emsp;
+
                             <?php
                                 $count_CON=\Illuminate\Support\Facades\DB::connection('mysql_service')->table('for_repair')->where([['confirm','=','confirmed'],['close','=',0]])->count();
                             ?>
@@ -34,25 +32,17 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                             <?php
                                 $op_CON=\Illuminate\Support\Facades\DB::connection('mysql_service')->table('for_repair')->where([['confirm','=','confirmed'],['close','=',1]])->count();
                             ?>
-                            Confirmed Projects Counts  :
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp; Open : {{$count_CON}}
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;  Close:{{$op_CON}}
+                            Confirmed Projects Counts -&emsp;Open : {{$count_CON}}&emsp;Close : {{$op_CON}}
+
                         @else
-                            Pending Table
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
+                            Pending Table &emsp;
+
                             <?php
                             $count_CON=\Illuminate\Support\Facades\DB::connection('mysql_service')->table('for_repair')->where([['confirm','=','pending'],['close','=',0]])->count();
                             ?>
+
                             Pending Projects Counts  : {{$count_CON}}
+
                         @endif
                     </div>
                     <div class="panel-body">
@@ -60,8 +50,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th> No</th>
-                                    <th> ID</th>
+                                    <th class="text-center">No.</th>
+                                    <th class="text-center">Post ID</th>
                                     <th class="text-center">Owner</th>
                                     <th class="text-center">phone</th>
                                     <th class="text-center">service type</th>
@@ -74,27 +64,28 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 <tbody>
                                 <?php $count = 1; ?>
                                 @foreach($data as $d)
+
                                     <?php
                                     $service_check = DB::connection('mysql_service')->table('for_repair')->where('id', $d->post_id);
                                     $service_data = $service_check->first();
                                     ?>
+
                                     @if($service_check->count() > 0)
 
                                         <tr>
                                             <td class="text-center"><?php echo $count;$count += 1; ?></td>
-                                            <th> {{$d->post_id}}</th>
-
-                                            <td>
+                                            <td class="text-center"> {{$d->post_id}} </td>
+                                            <td class="text-center">
                                                 {{$service_data->name}}
                                                 <?php
                                                 $acc_name = \Illuminate\Support\Facades\DB::connection('mysql_service')->table('users')->where('id', $service_data->user_id)->first();
                                                 ?>
                                                 {{--                                            {{$acc_name->name}}--}}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{$service_data->phone}}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <?php
                                                 $dd = 'Database Wrong';
                                                 switch ($service_data->fr_type) {
@@ -187,34 +178,30 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                                         break;
                                                 }
                                                 ?>
-
-
                                                 {{$dd}}
                                             </td>
                                             <td class="text-center">
                                                 {{$service_data->quotation}}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @if($service_data->close == 1)
                                                     Yes
                                                 @else
                                                     No
                                                 @endif
-
                                             </td>
 
-                                            <td>
+                                            <td class="text-center">
                                                 @if(preg_match('/confirmed_service/',url()->current()))
 
                                                     <?php
-                                                    $count_see = DB::table('see_projects_with_plan')->where('project_id', $service_data->id)->count();
+                                                    $count_see = DB::table('user_saw_this_plan')->where('project_id', $service_data->id)->count();
                                                     ?>
                                                     {{$count_see}}
+                                                    
                                                 @else
                                                     0
                                                 @endif
-
-
                                             </td>
 
 

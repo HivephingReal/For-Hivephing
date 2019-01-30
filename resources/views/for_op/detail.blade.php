@@ -308,7 +308,7 @@
 
                                     <strong>Seen Company Count : </strong>
                                     <?php
-                                    $seen_count = DB::table('see_projects_with_plan')->where('project_id', $service_data->id)->count();
+                                    $seen_count = DB::table('user_saw_this_plan')->where('project_id', $service_data->id)->count();
 
                                     ?>
                                     {{$seen_count}}

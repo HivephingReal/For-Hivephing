@@ -390,7 +390,8 @@ class ConstructprojectsController extends Controller
         $projects_data = DB::connection('mysql_service')->table('for_repair')->where('id', $pid)->first();
         
         //ki fixed here
-        $user_saw = DB::table('user_saw_this_plan')->insert(['user_id' => Auth::user()->id,'project_id' => $pid, 'created_at' => Carbon::now()]);
+       $user_saw = DB::table('user_saw_this_plan')->insert(['user_id' => Auth::user()->id,'project_id' => $pid, 'created_at' => Carbon::now()]);
+       //$user_saw2 = DB::table('see_projects_with_plan')->insert(['user_id' => Auth::user()->id,'project_id' => $pid, 'created_at' => Carbon::now()]);
         
         return view('user.entra.detail_project_without_request', ['data' => $projects_data]);
 

@@ -6,7 +6,6 @@
     <div class="col-xs-12" style="background-color:white; padding-bottom: 30px;">
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN THEME PANEL -->
-
             <!-- END THEME PANEL -->
             <!-- BEGIN PAGE BAR -->
             @section('title')
@@ -23,39 +22,28 @@
                                         <div>
                                             <h4 class="font-red-haze">
                                                 <span pdata-counter="counterup" pdata-value="Your free-trial period">Your free-trial period</span>
-
                                                 <small>Remaining Days
-                                                    :{{\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse(Auth::user()->created_at)->addDays(30))}}</small>
+                                                    :{{\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse(Auth::user()->created_at)->addDays(30))}}
+                                                </small>
                                             </h4>
-
                                             <small>
                                                 <?php
                                                 $remain_point = DB::table('user_get_free_plan')->where('user_id', Auth::user()->id)->first();
                                                 ?>
                                                 <span style="color:#36c6d3;">Remaining Projects</span>
                                                 :{{$remain_point->remaining_point}} projects
-
                                             </small>
                                             <br>
-
                                             <small>
-
                                                 <span style="color:#36c6d3;">Start Date</span>
                                                 :{{Auth::user()->created_at}}
-
                                             </small>
-                                            &nbsp;&nbsp;&nbsp;
-                                            <small>
-
+                                            &nbsp;&nbsp;&nbsp;<small>
                                                 <span style="color:#36c6d3;">End Date</span>
                                                 :{{\Carbon\Carbon::parse(Auth::user()->created_at)->addDays(30)}}
-
                                             </small>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -66,7 +54,6 @@
                 Dashboard
             </div>
             <div class="col-xs-12">
-
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5" style="background-color: white;;
                         border: 2px solid #e4e0e0; margin-left: 40px; margin-right: 5px;">
                     <div class="portlet light ">
@@ -79,7 +66,6 @@
                                 <li class="active">
                                     <!--   <a href="" pdata-toggle="tab"> See All </a>-->
                                 </li>
-
                             </ul>
                         </div>
                         <div class="portlet-body" style="height:422px;overflow:auto;">
@@ -89,7 +75,6 @@
                                     <div class="mt-actions pa">
                                         @foreach($pmessage as $pmsg)
                                             @if($pmsg->id == $last->id)
-
                                                 <div class="mt-action animated fadeIn p" id="{{$pmsg->id}}">
                                                     <div class="mt-action-img">
                                                     </div>

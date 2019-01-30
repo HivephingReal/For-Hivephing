@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\FirebaseModel;
 use App\Mail\Mailsfunction;
 use Carbon\Carbon;
@@ -9,14 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
 class ConfirmserviceController extends FirebasehelperController
-{    //
+{
+    //
     public function __construct()
     {
         $this->middleware('admin');
     }
-
     public function confirm_service($id)
     {
         if (auth()->guard('admin')->user()->role == 'op') {
@@ -24,7 +21,6 @@ class ConfirmserviceController extends FirebasehelperController
             if ($check_is == 0) {
                 return 'You are not authorized';
             }
-
         }
 
         DB::table('relation_user_post_and_op')->where([['op_id', '=', auth()->guard('admin')->user()->id], ['post_id', '=', $id]])->update(['process' => 'confirmed']);
@@ -113,8 +109,6 @@ class ConfirmserviceController extends FirebasehelperController
         }
         $title = $get_project_data->name;
         $des = str_limit($get_project_data->description, '120', '...');
-
-
         $get_com = DB::table('company')->where([['business_hub', '=', $fr], ['city_id', '=', $get_project_data->city]])->get();
         $send_user_token = ['e8ynnXytKfs:APA91bEm4FlKQH_QGFJHUwGHVz6n-LL30fkCEZ_ZuOx_QsCVrEck_4A4ZAw1rn7t-X59FkT1Pe5AUK4TXAJncE0ub3oAuLHZOSWanOzTMrKDhErnUSCde6treZMPdMI7955_V35F6Vio'];
         foreach ($get_com as $gc) {

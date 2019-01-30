@@ -385,7 +385,6 @@ Route::get('pending_projects/months/{id}', 'ProjectController@pending_projects_b
 Route::get('pending_projects/months/pending_detail/{id}', 'ProjectController@projects_pending_detail');
 Route::get('/projects/projects/project/detail/{id}', 'ProjectController@projects_confirmed_detail');
 //requested projects to users by companies 
-
 Route::get('/ee', function () {
     $ok = DB::connection('mysql_service')
         ->table('request')
@@ -402,7 +401,6 @@ Route::get('/ee', function () {
         echo "<br>requested time : " . \Carbon\Carbon::createFromTimeStamp(strtotime($k->created_at))->diffForHumans() . "<hr>";
     }
 });
-
 Route::get('/adminDashboard', 'IndexController@index');
 Route::get('/register_fee', 'RegisterfeeController@index');
 Route::get('/register_fee/edit/{id}', 'RegisterfeeController@edit_form');
@@ -410,8 +408,6 @@ Route::post('/register_fee/edit/{id}', 'RegisterfeeController@edit');
 Route::get('/register_fee/view/{id}', 'RegisterfeeController@detail');
 Route::get('/add_register_fee', 'RegisterfeeController@add_fee_form');
 Route::post('/add_register_fee', 'RegisterfeeController@add_fee');
-
-
 Route::get('/plans', 'PlansController@index');
 Route::get('/plan/view/{id}', 'PlansController@view');
 Route::get('/plan/edit/{id}', 'PlansController@edit_plan_form');
@@ -419,129 +415,72 @@ Route::get('/plans_detail/view/{id}', 'PlansController@detail');
 Route::get('/add_plan', 'PlansController@add_plan_form');
 Route::post('/add_plan', 'PlansController@add_plan');
 Route::post('/plan/edit/{id}', 'PlansController@edit');
-
-
 Route::get('/news', 'NewsController@index');
 Route::get('/tenders', 'TenderController@index');
 Route::get('tenders/upload', 'TenderController@upload');
 Route::get('tenders/view/{id}', 'TenderController@view');
 Route::get('tenders/delete/{id}', 'TenderController@delete');
 Route::get('tenders/edit/{id}', 'TenderController@edit');
-
 Route::post('tenders/edit/{id}', 'TenderController@update');
-
-
 Route::post('tenders/upload', 'TenderController@save');
-
-
 Route::get('events', 'EventsController@index');
-
 Route::get('events/upload', 'EventsController@upload');
-
 Route::post('events/upload', 'EventsController@save');
-
 Route::get('events/edit/{id}', 'EventsController@edit');
-
 Route::post('events/edit', 'EventsController@update');
-
 Route::get('events/view/{id}', 'EventsController@view');
-
 Route::get('events/delete/{id}', 'EventsController@delete');
-
 Route::get('news/view/{id}', 'NewsController@view');
-
 Route::get('news/upload', 'NewsController@upload');
-
 Route::post('news/upload', 'NewsController@save');
-
 Route::get('news/edit/{id}', 'NewsController@edit');
-
 Route::post('news/edit/{id}', 'NewsController@update');
-
 Route::get('news/delete/{id}', 'NewsController@delete');
-
 Route::get('newsCategory', 'NewsCategoryController@index');
-
 Route::get('newsCategory/upload', function () {
-
     return view('NewsCategory.upload');
-
 });
-
 Route::post('newsCategory/upload', 'NewsCategoryController@upload');
-
 Route::get('newsCategory/edit/{id}', 'NewsCategoryController@edit');
-
 Route::post('newsCategory/edit/{id}', 'NewsCategoryController@save');
-
 Route::get('newsCategory/delete/{id}', 'NewsCategoryController@delete');
-
 Route::get('cities', 'CityController@index');
-
 Route::get('cities/upload', 'CityController@upload');
-
 Route::post('cities/upload', 'CityController@save');
-
 Route::get('cities/edit/{id}', 'CityController@edit');
-
 Route::post('cities/edit/{id}', 'CityController@update');
-
 Route::get('cities/delete/{id}', 'CityController@delete');
-
 Route::get('countries', 'CountryController@index');
-
 Route::get('countries/upload', function () {
     return view('Country.upload');
 });
-
 Route::post('countries/upload', 'CountryController@upload');
-
 Route::get('countries/edit/{id}', 'CountryController@edit');
-
 Route::post('countries/edit/{id}', 'CountryController@update');
-
 Route::get('countries/delete/{id}', 'CountryController@delete');
-
 Route::get('businesshub', 'BusinessHubController@index');
-
 Route::get('businesshub/upload', 'BusinessHubController@news');
-
 Route::post('businesshub/upload', 'BusinessHubController@upload');
-
 Route::get('businesshub/edit/{id}', 'BusinessHubController@edit');
-
 Route::post('businesshub/edit/{id}', 'BusinessHubController@update');
-
 Route::get('businesshub/delete/{id}', 'BusinessHubController@delete');
-
 Route::get('businessgroup', 'BusinessGroupController@index');
-
 Route::get('businessgroup/upload', function () {
     return view('BusinessGroup.upload');
 });
-
 Route::post('businessgroup/upload', 'BusinessGroupController@upload');
-
 Route::get('businessgroup/edit/{id}', 'BusinessGroupController@edit');
-
 Route::post('businessgroup/edit/{id}', 'BusinessGroupController@update');
-
 Route::get('businessgroup/delete/{id}', 'BusinessGroupController@delete');
-
 Route::get('businessgroup/view/{id}', 'BusinessGroupController@view');
 //end admin
 Route::get('error', function () {
     return view('errors.error');
 });
-
 Route::get('test', function () {
     return view('user.entra.dashboard_mail');
-
 });
-
 // operation
-
-
 Route::group(['prefix' => 'operation'], function () {
     Route::get('/', 'OperationController@index');
     Route::get('/view/{id}', 'OperationController@view');
@@ -550,46 +489,28 @@ Route::group(['prefix' => 'operation'], function () {
     Route::get('/delete/{id}', 'OperationController@delete');
     Route::get('/edit/{id}', 'OperationController@edit');
     Route::post('/edit/{id}', 'OperationController@update');
-
     //for work
     Route::get('/first_work_form', 'OperationController@first_work_form');
     Route::post('/first_work', 'OperationController@first_work');
     Route::get('/first_work_list', 'OperationController@first_work_list');
     //end work
 });
-
 // end operation
-
-
 // free plan
-
 Route::get('/free_plan', 'FreePlanController@index');
-
 Route::get('free_plan/add', 'FreePlanController@add');
-
 Route::post('free_plan/add', 'FreePlanController@save');
-
 Route::get('free_plan/edit/{id}', 'FreePlanController@edit');
-
 Route::post('free_plan/edit/{id}', 'FreePlanController@update');
-
 // end free plan
-
-
 //construct plan
-
 Route::get('construct_plan', 'ConstructplanadminController@construct_plan_all');
 Route::get('edit_cplan/{id}', 'ConstructplanadminController@edit_cplan');
 Route::post('edit_cplan/{id}', 'ConstructplanadminController@edit_cplan_save');
-
 //end construct plan
-
-
 // Rating
-
 Route::post('rating', 'RatingController@rate');
 Route::get('company_detail/{id}/rating', 'EntroController@rating');
-
 // end rating
 Route::get('gen_psw', function () {
     return bcrypt('234567');

@@ -52,7 +52,6 @@ header('Content-Type:text/html');
                                         <?php
                                         $com = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->first();
                                         ?>
-
                                         <tr>
                                             <td>{{$com->id}}
                                             </td>

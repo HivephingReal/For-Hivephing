@@ -686,11 +686,8 @@
         // [END_EXCLUDE]
     });
 </script>
-
-
 <script>
     //when user click noti button
-
     $("#dLabel").click(function () {
         $.get("http://localhost/realfinal/hivephing/entra/clear_noti/" + gid, function (data, status) {
             document.getElementById('noti').innerHTML = 0;

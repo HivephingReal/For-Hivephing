@@ -97,7 +97,6 @@ p {
                     <img src="{{asset('users/entro/photo/'.$d->logo)}}" height="150" width="150">
                     </a>
                 </div>
-
                 <h2>{{$d->name}}</h2>
                 <h4>"... {{$d->description}} ..."</h4>
                

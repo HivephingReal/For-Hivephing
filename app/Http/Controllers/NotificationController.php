@@ -16,7 +16,7 @@ class NotificationController extends Controller
 
     }
     public function clear_noti($id){
-//        $noti=DB::table('notification')->where('for_whom_user_id',$id)->update(['read_or_un'=>'read']);
+        $noti=DB::table('notification')->where('for_whom_user_id',$id)->update(['read_or_un'=>'read']);
         return response()->json(['count'=>0]);
 
     }

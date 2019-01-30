@@ -44,31 +44,39 @@ header('Content-Type:text/html');
                                 <tbody>
                                 @foreach($data as $d)
                                     <?php
-                                    $com = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->first();
-                                    ?>
-                                    <tr>
-                                        <td>{{$com->id}}
-                                        </td>
-                                        <td>
-                                            {{$com->name}}
-                                        </td>
-                                        <td>
-                                            {{$com->phone}}
+                                    $com_cc = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->count();
 
-                                        </td>
-                                        <td>
-                                            {{strip_tags(str_limit($com->description,'110'))}}
-                                        </td>
-                                        <td>
-                                            {{$com->close}}
-                                        </td>
-                                        <td>
-                                            {{$com->project_define_point}}
-                                        </td>
-                                        <td>
-                                            {{$d->created_at}}
-                                        </td>
-                                    </tr>
+                                    ?>
+                                    @if($com_cc != 0)
+
+                                        <?php
+                                        $com = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->first();
+                                        ?>
+
+                                        <tr>
+                                            <td>{{$com->id}}
+                                            </td>
+                                            <td>
+                                                {{$com->name}}
+                                            </td>
+                                            <td>
+                                                {{$com->phone}}
+
+                                            </td>
+                                            <td>
+                                                {{strip_tags(str_limit($com->description,'110'))}}
+                                            </td>
+                                            <td>
+                                                {{$com->close}}
+                                            </td>
+                                            <td>
+                                                {{$com->project_define_point}}
+                                            </td>
+                                            <td>
+                                                {{$d->created_at}}
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                                 </tbody>
                             </table>

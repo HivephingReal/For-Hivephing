@@ -661,6 +661,14 @@
     messaging.onMessage(function (payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
+        $('#mom-noti').prepend("<a class='content' href='#'><div class='notification-item'>"
+                +"<br><br><div class='caption'><i class='icon-layers font-green'></i><span class='caption-subject font-green bold uppercase'>New Project</span></div>"+
+                +"<div class='item-info' style = 'font-size: 13px;color:#888;' >"+ payload.notification.body +"</div >"+
+                + "</div>" +
+                +"</a>"
+        )
+        ;
+
         messaging.getToken().then(function (currentToken) {
             if (currentToken) {
                 $.get("http://localhost/realfinal/hivephing/entra/get_noti/" + gid, function (data, status) {
@@ -672,6 +680,7 @@
         $(".modal-title").html("<h3 style='font-weight:bold'>" + payload.notification.title + "</h3>");
         $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
+
         // [START_EXCLUDE]
         // Update the UI to include the received message.
         // [END_EXCLUDE]

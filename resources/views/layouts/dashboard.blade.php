@@ -43,9 +43,11 @@
                                     <i class="icon-bell"></i>
                                     <span class="badge" id="noti">
                                         @php
-                                            $noti_data = \Illuminate\Support\Facades\DB::table('notification')->where([['for_whom_user_id','=',\Illuminate\Support\Facades\Auth::user()->id],['read_or_un','=','unread']]);
+                                            $noti_data = \Illuminate\Support\Facades\DB::table('notification')->where([['for_whom_user_id','=',\Illuminate\Support\Facades\Auth::user()->id],['read_or_un','!=','detailread']])->orderBy('updated_at','desc');
+                                            $noti_count = \Illuminate\Support\Facades\DB::table('notification')->where([['for_whom_user_id','=',\Illuminate\Support\Facades\Auth::user()->id],['read_or_un','=','unread']]);
+
                                         @endphp
-                                        {{$noti_data->count()}}
+                                        {{$noti_count->count()}}
                                     </span>
                                 </a>
                                 <div class="dropdown-menu notifications">
@@ -53,32 +55,34 @@
                                         <div style="margin-top:22px;margin-left:12px;margin-right:12px;">
                                             <div class="menu-title"
                                                  style="font-size:16px;font-weight: 700;color:#62878f;">You
-                                                have {{$noti_data->count()}} notifications
+                                                have {{$noti_count->count()}} new notifications
                                             </div>
-                                            <div class="menu-title pull-right">View all</div>
+                                            <a class="menu-title pull-right"
+                                               style="color:#32c5d2;font-weight:400;cursor:pointer;">View all</a>
                                         </div>
-
-                                        <div class="notifications-wrapper">
+                                        <div class="notifications-wrapper" id="mom-noti" style="margin-left:12px;">
                                             @foreach($noti_data->get() as $nd)
                                                 @php
                                                     $prdatafornoti=\Illuminate\Support\Facades\DB::connection('mysql_service')->table('for_repair')->where('id',$nd->pid)->first();
                                                 @endphp
-                                                <a class="content" href="#">
+                                                <a class="content" href="{{url('/entra/construct_projects')}}">
                                                     <div class="notification-item">
                                                         {{--<h4 class="item-title">{{$prdatafornoti->title}}</h4>--}}
                                                         <br><br>
                                                         @if($nd->status =='confirmed_by_op')
-                                                            New Project
+                                                            <div class="caption">
+                                                                <i class=" icon-layers font-green"></i>
+                                                                <span class="caption-subject font-green bold uppercase">New Project</span>
+                                                            </div>
                                                         @endif
-                                                            <div class="item-info"
-                                                               style="font-size: 13px;color:#888;">{{str_limit($prdatafornoti->description,'150','....')}}</div>
+                                                        <div class="item-info"
+                                                             style="font-size: 13px;color:#888;">{{str_limit($prdatafornoti->description,'150','....')}}</div>
                                                     </div>
                                                 </a>
                                             @endforeach
-
                                         </div>
                                         <li class="divider"></li>
-                                        <div class="notification-footer"><h4 class="menu-title">View all</h4></div>
+                                        <div class="notification-footer"><h4 class="menu-title">See in construct project Tag</h4></div>
                                     </div>
                                 </div>
                             </div>
@@ -103,9 +107,10 @@
         <div class="col-xs-12">
             <div class="topnavs" id="myTopnav">
                 <div class="dropdowns" class="actives">
-
                     <button class="dropbtns">
-                        <i class="fa fa-user"> {{Auth::user()->name}}</i>
+                        <i class="fa fa-user">
+                            {{Auth::user()->name}}
+                        </i>
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdowns-content">
@@ -250,6 +255,7 @@
                          class="footer_img"/>
                 </div>
                 <div class="col-xs-1 col-sm-3">
+
                 </div>
             </div>
             <div class="col-xs-12"

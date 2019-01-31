@@ -360,9 +360,7 @@ Route::group(['prefix' => 'construct'], function () {
     Route::post('edit/{id}', 'ConstructController@update');
 });
 // end construct
-
 //for admin
-
 ##KI KI### admin
 //dashboard
 Route::get('/dashboard', 'ProjectController@index');

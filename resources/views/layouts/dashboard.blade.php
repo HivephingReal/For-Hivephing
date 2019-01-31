@@ -1,3 +1,7 @@
+<?php
+echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header("Cache-Control:post-check=0,pre-check=0", false);header("Pragma:no-cache");header('Content-Type:text/html');
+
+?>
 @extends('layouts.plane')
 
 @section('body')
@@ -39,7 +43,7 @@
                     <div class="top_m col-md-6" style="">
                         <div class="col-xs-4  col-sm-4 col-md-4">
                             <div class="dropdown">
-                                <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                <a role="button" data-toggle="dropdown" data-target="#" href="/page.html">
                                     <i class="icon-bell"></i>
                                     <span class="badge" id="noti">
                                         @php
@@ -82,7 +86,6 @@
                                             @endforeach
                                         </div>
                                         <li class="divider"></li>
-                                        <div class="notification-footer"><h4 class="menu-title">See in construct project Tag</h4></div>
                                     </div>
                                 </div>
                             </div>

@@ -1,3 +1,7 @@
+<?php
+echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header("Cache-Control:post-check=0,pre-check=0", false);header("Pragma:no-cache");header('Content-Type:text/html');
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -686,17 +690,17 @@
         // [END_EXCLUDE]
     });
 </script>
-<script>
-    //when user click noti button
-    $("#dLabel").click(function () {
-        $.get("http://localhost/realfinal/hivephing/entra/clear_noti/" + gid, function (data, status) {
-            document.getElementById('noti').innerHTML = 0;
-            console.log(data);
-        });
-    });
+{{--<script>--}}
+    {{--//when user click noti button--}}
+    {{--$("#dLabel").click(function () {--}}
+        {{--$.get("http://localhost/realfinal/hivephing/entra/clear_noti/" + gid, function (data, status) {--}}
+            {{--document.getElementById('noti').innerHTML = 0;--}}
+            {{--console.log(data);--}}
+        {{--});--}}
+    {{--});--}}
 
 
-</script>
+{{--</script>--}}
 
 
 </html>

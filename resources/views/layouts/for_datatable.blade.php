@@ -12,8 +12,10 @@ Purchase: https://themeforest.net/item/metronic-responsive-admin-dashboard-templ
 Renew Support: https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
@@ -21,69 +23,88 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_1/table_datatables_managed.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Nov 2017 07:39:34 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Hiveping</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Preview page of Metronic Admin Theme #1 for managed datatable samples" name="description" />
-    <meta content="" name="author" />
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Preview page of Metronic Admin Theme #1 for managed datatable samples" name="description"/>
+    <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
+          type="text/css"/>
 
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{asset('global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet"
+          type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="{{asset('global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet"
+          type="text/css"/>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{asset('global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-    <link href="{{asset('global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="{{asset('global/css/plugins.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="{{asset('layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="{{asset('layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css"
+          id="style_color"/>
+    <link href="{{asset('layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" />
-   <style>
-       .red{
-    color:red;
-    }
-       @font-face {
-           font-family:'Ours-Unicode';
-           src:local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
-       }
-       @font-face {
-           font-family:'Zawgyi-One';
-           src:local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
-       }
-   </style>
+    <link rel="shortcut icon" href="favicon.ico"/>
     <style>
-        .red{
-            color:red;
+        .red {
+            color: red;
         }
-        .input-title{
-            font-weight:bold;color:#888;
-        }
-        .pannel-title{
-            font-weight:bold;color:#888;margin:22px;font-size:18px;
-        }
-        .detail-title{
-            color:lightseagreen;font-weight:bolder;font-size:16px;
-        }
+
         @font-face {
-            font-family:'Ours-Unicode';
-            src:local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
+            font-family: 'Ours-Unicode';
+            src: local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
         }
+
         @font-face {
-            font-family:'Zawgyi-One';
-            src:local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
+            font-family: 'Zawgyi-One';
+            src: local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
+        }
+    </style>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .input-title {
+            font-weight: bold;
+            color: #888;
+        }
+
+        .pannel-title {
+            font-weight: bold;
+            color: #888;
+            margin: 22px;
+            font-size: 18px;
+        }
+
+        .detail-title {
+            color: lightseagreen;
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        @font-face {
+            font-family: 'Ours-Unicode';
+            src: local('Ours-Unicode'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/oursunicode.ttf') format('ttf');
+        }
+
+        @font-face {
+            font-family: 'Zawgyi-One';
+            src: local('Zawgyi-One'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
         }
     </style>
     <style>
@@ -91,7 +112,7 @@ License: You must have a valid license purchased only from themeforest(the above
         .topnavs {
             overflow: hidden;
             background-color: #2e4765;
-            float:right;
+            float: right;
 
         }
 
@@ -135,7 +156,7 @@ License: You must have a valid license purchased only from themeforest(the above
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -167,6 +188,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 display: none;
 
             }
+
             .dropdowns-content a:hover {
                 background-color: #ddd;
                 color: black;
@@ -180,30 +202,41 @@ License: You must have a valid license purchased only from themeforest(the above
             .topnavs {
                 overflow: hidden;
                 background-color: #2e4765;
-                width:100%;
+                width: 100%;
             }
 
             .topnavs a.icon {
                 display: block;
-                float:right;
+                float: right;
             }
 
         }
 
         @media screen and (max-width: 600px) {
-            .topnavs.responsive {position: relative;}
+            .topnavs.responsive {
+                position: relative;
+            }
+
             .topnavs.responsive .icon {
                 position: absolute;
                 right: 0;
                 top: 0;
             }
+
             .topnavs.responsive a {
                 float: none;
                 display: block;
                 text-align: left;
             }
-            .topnavs.responsive .dropdowns {float: none;}
-            .topnavs.responsive .dropdowns-content {position: relative;}
+
+            .topnavs.responsive .dropdowns {
+                float: none;
+            }
+
+            .topnavs.responsive .dropdowns-content {
+                position: relative;
+            }
+
             .topnavs.responsive .dropdowns .dropbtns {
                 display: block;
                 width: 100%;
@@ -356,9 +389,9 @@ License: You must have a valid license purchased only from themeforest(the above
             }
         }
     </style>
-    </head>
+</head>
 <!-- END HEAD -->
-<body  style="background:#2e4765;" id="cf">
+<body style="background:#2e4765;" id="cf">
 
 
 @yield('body')
@@ -375,7 +408,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{asset('global/scripts/datatable.js')}}" type="text/javascript"></script>
 <script src="{{asset('global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+<script src="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}"
+        type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{asset('global/scripts/app.min.js')}}" type="text/javascript"></script>
@@ -390,17 +424,15 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="{{asset('layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-    $(document).ready(function()
-    {
-        $('#clickmewow').click(function()
-        {
+    $(document).ready(function () {
+        $('#clickmewow').click(function () {
             $('#radio1003').attr('checked', 'checked');
         });
     })
-    function change_font(name){
-        if(name == 'z') {
+    function change_font(name) {
+        if (name == 'z') {
             document.getElementById('cf').style.fontFamily = "Zawgyi-One";
-        }else{
+        } else {
             document.getElementById('cf').style.fontFamily = "Ours-Unicode";
 
         }
@@ -425,13 +457,13 @@ License: You must have a valid license purchased only from themeforest(the above
     messaging = firebase.messaging();
     messaging.usePublicVapidKey('BHukpDQk_W_mBxXd1vekcQXVpjWm99ToopRdcp8X4AekrIakuAMRAeP1Ns7JsFiPui_PT-2Bdj1ZpUywEtmsxK0');
 
-    messaging.requestPermission().then(function() {
+    messaging.requestPermission().then(function () {
         console.log('Notification permission granted.');
         // TODO(developer): Retrieve an Instance ID token for use with FCM.
-        messaging.getToken().then(function(currentToken) {
+        messaging.getToken().then(function (currentToken) {
             if (currentToken) {
-                console.log('token:'+currentToken);
-                $.post("https://localhost/realfinal/hivephing/store_token",{token:currentToken}, function(data, status){
+                console.log('token:' + currentToken);
+                $.post("https://localhost/realfinal/hivephing/store_token", {token: currentToken}, function (data, status) {
                     console.log(data);
                 });
 
@@ -442,20 +474,23 @@ License: You must have a valid license purchased only from themeforest(the above
                 updateUIForPushPermissionRequired();
                 setTokenSentToServer(false);
             }
-        }).catch(function(err) {
+        }).catch(function (err) {
         });
         // ...
-    }).catch(function(err) {
+    }).catch(function (err) {
         console.log('Unable to get permission to notify.', err);
     });
-    messaging.onMessage(function(payload) {
+    messaging.onMessage(function (payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("https://localhost/realfinal/hivephing/store_fcm",{user_token: payload.data.user_token,post_id:payload.data.post_id}, function(data, status){
+        $.post("https://localhost/realfinal/hivephing/store_fcm", {
+            user_token: payload.data.user_token,
+            post_id: payload.data.post_id
+        }, function (data, status) {
             console.log(data);
         });
-        $(".modal-title").html("<h3 style='font-weight:bold'>"+payload.notification.title+"</h3>");
-        $(".modal-body").html(payload.notification.body +'<br><br>'+"<a href='https://"+window.location.hostname+"/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-title").html("<h3 style='font-weight:bold'>" + payload.notification.title + "</h3>");
+        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
         // [START_EXCLUDE]
         // Update the UI to include the received message.
@@ -465,7 +500,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- Google Code for Universal Analytics -->
 
 </body>
-
 
 
 <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_1/table_datatables_managed.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Nov 2017 07:39:39 GMT -->

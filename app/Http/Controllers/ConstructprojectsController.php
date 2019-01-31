@@ -27,6 +27,7 @@ class ConstructprojectsController extends Controller
     public function get_projects()
     {
         $con_com_data = DB::table('company')->where('user_id', Auth::user()->id)->first();
+        DB::table('notification')->where('for_whom_user_id',Auth::user()->id)->update(['read_or_un'=>'detailread']);
 
         switch ($con_com_data->business_hub) {
             case 1 :
@@ -41,11 +42,9 @@ class ConstructprojectsController extends Controller
             case 4:
                 $fr = ['fr1', 'rb2'];
                 break;
-
             case 5:
                 $fr = ['fr7', 'fr7'];
                 break;
-
             case 6:
                 $fr = ['fr8', 'rb5'];
                 break;
@@ -388,11 +387,11 @@ class ConstructprojectsController extends Controller
     public function detail_project_without_request($pid)
     {
         $projects_data = DB::connection('mysql_service')->table('for_repair')->where('id', $pid)->first();
-        
+
         //ki fixed here
        $user_saw = DB::table('user_saw_this_plan')->insert(['user_id' => Auth::user()->id,'project_id' => $pid, 'created_at' => Carbon::now()]);
        //$user_saw2 = DB::table('see_projects_with_plan')->insert(['user_id' => Auth::user()->id,'project_id' => $pid, 'created_at' => Carbon::now()]);
-        
+
         return view('user.entra.detail_project_without_request', ['data' => $projects_data]);
 
 

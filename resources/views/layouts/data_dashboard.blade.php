@@ -1,4 +1,4 @@
-A@extends('layouts.for_datatable')
+@extends('layouts.for_datatable')
 
 @section('body')
 

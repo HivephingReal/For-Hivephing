@@ -643,7 +643,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
         messaging.getToken().then(function (currentToken) {
             if (currentToken) {
                 console.log('token:' + currentToken);
-                $.post("http://localhost/realfinal/hivephing/store_token", {token: currentToken}, function (data, status) {
+                $.post("https://" + window.location.hostname + "/companies/entra/store_token", {token: currentToken}, function (data, status) {
                     console.log(data);
                     gid = data.data;
                     console.log('gg' + gid);
@@ -675,14 +675,14 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
         messaging.getToken().then(function (currentToken) {
             if (currentToken) {
-                $.get("http://localhost/realfinal/hivephing/entra/get_noti/" + gid, function (data, status) {
+                $.get("https://" + window.location.hostname + "/companies/entra/get_noti/" + gid, function (data, status) {
                     document.getElementById('noti').innerHTML = data.count;
                     console.log(data);
                 });
             }
         });
         $(".modal-title").html("<h3 style='font-weight:bold'>" + payload.notification.title + "</h3>");
-        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/companies/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
 
         // [START_EXCLUDE]

@@ -456,15 +456,17 @@ License: You must have a valid license purchased only from themeforest(the above
 
     messaging = firebase.messaging();
     messaging.usePublicVapidKey('BHukpDQk_W_mBxXd1vekcQXVpjWm99ToopRdcp8X4AekrIakuAMRAeP1Ns7JsFiPui_PT-2Bdj1ZpUywEtmsxK0');
-
+    gid = '';//global var fro userid to use everywhere
     messaging.requestPermission().then(function () {
         console.log('Notification permission granted.');
         // TODO(developer): Retrieve an Instance ID token for use with FCM.
         messaging.getToken().then(function (currentToken) {
             if (currentToken) {
                 console.log('token:' + currentToken);
-                $.post("https://localhost/realfinal/hivephing/store_token", {token: currentToken}, function (data, status) {
+                $.post("https://" + window.location.hostname + "/companies/entra/store_token", {token: currentToken}, function (data, status) {
                     console.log(data);
+                    gid = data.data;
+                    console.log('gg' + gid);
                 });
 
             } else {
@@ -483,15 +485,26 @@ License: You must have a valid license purchased only from themeforest(the above
     messaging.onMessage(function (payload) {
         console.log('Message received.', payload.notification.body);
         console.log('Message received.', payload.data.post_id);
-        $.post("https://localhost/realfinal/hivephing/store_fcm", {
-            user_token: payload.data.user_token,
-            post_id: payload.data.post_id
-        }, function (data, status) {
-            console.log(data);
+        $('#mom-noti').prepend("<a class='content' href='#'><div class='notification-item'>"
+            +"<br><br><div class='caption'><i class='icon-layers font-green'></i><span class='caption-subject font-green bold uppercase'>New Project</span></div>"+
+            +"<div class='item-info' style = 'font-size: 13px;color:#888;' >"+ payload.notification.body +"</div >"+
+            + "</div>" +
+            +"</a>"
+        )
+        ;
+
+        messaging.getToken().then(function (currentToken) {
+            if (currentToken) {
+                $.get("https://" + window.location.hostname + "/companies/entra/get_noti/" + gid, function (data, status) {
+                    document.getElementById('noti').innerHTML = data.count;
+                    console.log(data);
+                });
+            }
         });
         $(".modal-title").html("<h3 style='font-weight:bold'>" + payload.notification.title + "</h3>");
-        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/realfinal/hivephing/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
+        $(".modal-body").html(payload.notification.body + '<br><br>' + "<a href='https://" + window.location.hostname + "/companies/entra/construct_projects' style='float:right' class='btn btn-primary'> Go to See </a><br><br>");
         $("#myModal").modal();
+
         // [START_EXCLUDE]
         // Update the UI to include the received message.
         // [END_EXCLUDE]

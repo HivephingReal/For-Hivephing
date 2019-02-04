@@ -23,7 +23,7 @@ class CompanyController extends Controller
         return view('companies.index', ['data' => $data]);
     }
     public function see_projects($user_id){
-        $data=DB::table('user_saw_this_plan')->where('user_id',$user_id)->get();
+        $data=DB::table('see_projects_with_plan')->where('user_id',$user_id)->get();
         return view('companies.see_projects',['data'=>$data]);
     }
 

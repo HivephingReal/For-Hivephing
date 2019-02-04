@@ -155,7 +155,7 @@
                             </div>
                             <div class="lib-row lib-desc">
                                 <?php
-                                    $project_count=DB::table('user_saw_this_plan')->where('user_id',$data->user_id)->count();
+                                    $project_count=DB::table('see_projects_with_plan')->where('user_id',$data->user_id)->count();
                                 ?>
                                 See_porject_count  :
                                 {{$project_count}}

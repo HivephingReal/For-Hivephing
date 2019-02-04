@@ -263,6 +263,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     </div>
     <div class="col-xs-12">
         @foreach($data as $d)
+         @if($d->delete != 1)
+
             <div class="col-md-6 ">
                 <!-- BEGIN Portlet PORTLET-->
                 <div class="portlet box blue-hoki">
@@ -350,6 +352,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                 </div>
                 <!-- END Portlet PORTLET-->
             </div>
+         @endif
         @endforeach
 
     </div>

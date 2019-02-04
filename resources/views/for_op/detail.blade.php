@@ -79,6 +79,16 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        /*href button*/
+        .button1 {
+    width: 50px;
+    height: 15px;
+    background: #ff0000;
+    padding: 6px 12px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
         </style>
     </head>
 
@@ -196,8 +206,6 @@
                                     case 'b3':
                                         $dd = 'Tat tar';
                                         break;
-
-
                                 }
 
                                 switch ($service_data->fr_type) {
@@ -343,6 +351,8 @@
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                     Edit
                                 </a>
+                               <a class="btn btn-danger" 
+                               href = "{{url('delete_post/'.$service_data->id)}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                 <a type="button" href='{{url('see_which_company_see_thist/'.$service_data->id.'/'.$data->id)}}'
                                    class="btn btn-default" data-dismiss="modal">
                                     See which company see this?

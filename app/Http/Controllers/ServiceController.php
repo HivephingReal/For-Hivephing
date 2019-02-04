@@ -115,4 +115,31 @@ class ServiceController extends Controller
         $get_com=DB::table('user_saw_this_plan')->where('project_id',$id)->get();
         return view('for_op.see_which_company_see',['data'=>$get_com,'pid'=>$pid]);
     }
+    public function delete_post($pid)
+    {
+        $delete = DB::connection('mysql_service')
+                    ->table('for_repair')
+                    ->where('id', $pid)
+                    ->update(['delete' => 1]);
+
+        return redirect('confirmed_service')->with('delete', 'Successfully deleted!');
+    }
+    public function view_deletedProjects()
+    {
+         $del_prj = DB::connection('mysql_service')
+                        ->table('for_repair')
+                        ->where([['delete', '=', 1]])
+                        ->orderBy('created_at','desc')
+                        ->get();
+         return view('for_op.view_deletedProjects',['data'=>$del_prj]);
+    }
+    public function restore_post($pid)
+    {
+        $delete = DB::connection('mysql_service')
+                    ->table('for_repair')
+                    ->where('id', $pid)
+                    ->update(['delete' => 0]);
+
+        return redirect('view_deletedProjects')->with('restore', 'Successfully restored!');
+    }
 }

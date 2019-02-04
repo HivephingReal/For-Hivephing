@@ -125,6 +125,12 @@
                  Confirmed Service
              </a>
          </li>
+         <li>
+             <a href="{{ url('view_deletedProjects') }}">
+                 <i class="fa fa-trash" aria-hidden="true" style="font-size: 35px"></i>
+                 Deleted Projects
+             </a>
+         </li>
            <li>
              <a  href="{{url('companies')}}"><i class="fa fa-tablet" aria-hidden="true" style="font-size:35px;"></i>
                  Companies</a>

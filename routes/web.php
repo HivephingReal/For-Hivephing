@@ -59,6 +59,9 @@ Route::get('confirmed_service', 'ServiceController@confirmed_service');
 Route::get('service/detail/{id}', 'ServiceController@pending_service_detail');
 Route::post('service/detail/{id}/edit', 'ServiceController@update');
 Route::get('see_which_company_see_thist/{id}/{pid}', 'ServiceController@com_see_project');
+Route::get('delete_post/{id}', 'ServiceController@delete_post');
+Route::get('view_deletedProjects', 'ServiceController@view_deletedProjects');
+Route::get('restore_post/{id}', 'ServiceController@restore_post');
 
 
 //end route for op

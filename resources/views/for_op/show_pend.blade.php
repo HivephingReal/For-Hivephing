@@ -16,6 +16,15 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
             <p class="alert alert-info">{{session('update')}}</p>
 
         @endif
+
+        
+        @if (session('delete'))
+        <div class="alert alert-success">
+        {{ session('delete') }}
+        </div>
+        @endif
+
+
         <div class="row">
             <div class="col-md-12">
                 <!-- Advanced Tables -->
@@ -71,6 +80,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     ?>
 
                                     @if($service_check->count() > 0)
+                                        @if($service_data->delete != 1)
 
                                         <tr>
                                             <td class="text-center"><?php echo $count;$count += 1; ?></td>
@@ -215,6 +225,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endif
                                 @endforeach
                                 </tbody>

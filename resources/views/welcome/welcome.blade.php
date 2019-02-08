@@ -10,8 +10,10 @@
 				<h2 style="color: #36c6d3; font-weight:bolder;font-size: 60px;"> Welcome!</h2>
    			     <p style="color: #97a1a1; font-weight:bold;font-size: 25px;">
 					Thanks for creating hivephing account.Please like our facebook page,
-				<div class="fb-like" data-href="https://www.facebook.com/businessnetwork.hivephing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-					
+				<a href="https://www.facebook.com/hivephing.projectinfo/">www.facebook.com/hivephing.projectinfo/</a>
+				<br>
+				<br>
+				<br>		
 				</p>
 			</div>
 		</div>

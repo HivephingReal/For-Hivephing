@@ -98,7 +98,7 @@ p {
                     </a>
                 </div>
                 <h2>{{$d->name}}</h2>
-                <h4>"... {{$d->description}} ..."</h4>
+                <h4 style=" overflow-x: auto;">"... {{$d->description}} ..."</h4>
                
                     @if($d->ceo_name != '' or $d->ceo_email != '' or $d->ceo_detail)
                      <p>

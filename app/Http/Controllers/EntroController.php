@@ -146,8 +146,7 @@ class EntroController extends Controller
                 'investment' => 'required|numeric|min:1|max:2',
                 'registration_status' => 'required|numeric|min:1|max:2',
                 'description' => 'required|min:12|max:3330',
-                "logo"=>'required',
-//                'logo' => 'mimes:jpeg,bmp,png,jpg,gif'
+               'logo' => 'mimes:jpeg,bmp,png,jpg,gif'
             ]);
 
         if ($validator->fails()) {
@@ -236,14 +235,14 @@ class EntroController extends Controller
     {
         $old_data = Company::where('id', $request->id)->first();
         $validator = Validator::make($request->all(), ['name' => 'required|min:2|max:120', 'business_hub' => 'required|min:1|max:20', 'country_id' => 'required|numeric|min:1',
-            'city_id' => 'required|numeric', 'logo' => 'required', 'address' => 'required|max:1000',
+            'city_id' => 'required|numeric', 'logo' => 'mimes:jpeg,bmp,png,jpg,gif', 'address' => 'required|max:1000',
             'email' => 'required|email|unique:company,email,' . $request->id, 'phone' => 'required|numeric|digits_between:5,14',
-            'website' => 'max:27',
-            'facebook' => 'max:27',
+            'website' => 'max:27', /*ki removed fb validation*/
             'investment' => 'required|numeric|min:1|max:2',
             'registration_status' => 'required|numeric|min:1|max:2',
             'description' => 'required|min:12|max:3330',
-            'ceo_name' => 'min:5|max:130', 'ceo_email' => 'email|unique:company,ceo_email,' . $request->id]);
+            'ceo_name' => 'min:5|max:130',
+            'ceo_email' => 'email|unique:company,ceo_email,' . $request->id]);
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         } else {

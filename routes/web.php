@@ -579,21 +579,5 @@ Route::post('store_token', 'FirebasemessageController@store_token');
 
 Route::get('send_noti', 'FirebasemessageController@sendnoti');
 
-//Recommend system
-Route::get('recommend1', 'RecommendController@recommend_form1');
-Route::post('recommend2', 'RecommendController@recommend_form2');
-Route::post('recommend2_1', 'RecommendController@recommend_form2_1');
-Route::post('recommend3', 'RecommendController@recommend_form3');
-Route::post('recommend4', 'RecommendController@recommend_form4');
-Route::post('recommend5', 'RecommendController@recommend_form5');
-Route::post('recommend6', 'RecommendController@recommend_form6');
-Route::post('recommend7', 'RecommendController@recommend_form7');
-Route::post('recommend8', 'RecommendController@recommend_form8');
-Route::post('recommend9', 'RecommendController@recommend_form9');
-Route::post('recommend10', 'RecommendController@recommend_form10');
-Route::post('recommend11', 'RecommendController@recommend_form11');
-Route::post('recommend12', 'RecommendController@recommend_form12');
-Route::post('recommend13', 'RecommendController@recommend_form13');
-Route::post('recommend14', 'RecommendController@recommend_form14');
 
 

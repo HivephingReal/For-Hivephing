@@ -6,6 +6,20 @@
 @endsection
 @section('bg'){{asset('images/about_banner.jpg')}}@endsection
 
+<script>
+function show() {
+  document.getElementById("panel").style.display = "block"; /*hidden*/
+}
+function hide() {
+  document.getElementById("panel").style.display = "none"; /*hidden*/
+}
+</script>
+<style>
+    #panel {
+  display: none;
+}
+</style>
+
 <!-- BEGIN SIDEBAR -->
 
 <!-- END SIDEBAR -->
@@ -87,19 +101,31 @@
 					</div>
 
 					<div class="form-group">
-						<div class="form-group {{ $errors->has('end_date') ? ' has-error' : '' }}">
+						<div class="form-group {{ $errors->has('completion_date') ? ' has-error' : '' }}">
                             <label class="input-title">
-                                Date of completion
+                                Project is &nbsp;
                             </label>
+                            <input type = "radio" onclick="show()" name = "completion_date" value="done">&nbsp;Done &nbsp;
+                            <input type = "radio" onclick="hide()" name = "completion_date" value="on_going">&nbsp;On Going
 
-                            <input type="date" class="form-control f" name="end_date"
-                                   placeholder="Optional" value="{{old('end_date')}}">
-                            @if ($errors->has('end_date'))
+                            @if ($errors->has('completion_date'))
                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('end_date') }}</strong>
+                                                    <strong>{{ $errors->first('completion_date') }}</strong>
                                                      </span>
                             @endif
-                        </div>
+ 
+                            <div id="panel">
+                                <label class="input-title">
+                                    Date of Completion &nbsp;
+                                </label>
+                                <input type="date" class="form-control f" name="end_date"
+                                   placeholder="Optional" value="{{old('end_date')}}"></div>
+                                @if ($errors->has('end_date'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('end_date') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
 					</div>
 
 					<div class="form-group">

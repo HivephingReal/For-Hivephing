@@ -26,19 +26,41 @@ class PortfolioController extends Controller
     }
     public function add_data(Request $request){
 
-
         $validator = Validator::make($request->all(),
             [
                 'project_name' => 'required|min:2|max:120',
                 'description' => 'required|min:1|max:2220',
                 'start_date' => 'required|date',
-                'end_date' => 'required|date',
+                'completion_date' => 'required',
                 'photo' => 'required',
                 'address' => 'min:5|max:1600' /*ki fixed here*/
             ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
-        } else {
+        } 
+        else {
+
+            $input = $request->except('_token');
+
+            if($request->completion_date == "done")
+            {
+                $validator = Validator::make($request->all(), [
+                            'end_date' => 'required|date',
+                            ]);
+
+                if ($validator->fails()) {
+                     return redirect()->back()->withErrors($validator)->withInput();
+                }
+                else{
+                   $input['end_date'] = $request->end_date;
+                } 
+            }
+             else
+            {
+              $input['end_date'] = "0000-00-01";
+              $input['on_going'] = 1;
+            }
+
             if (!empty($request->file('photo'))) {
                 $request->file('photo')->move(base_path() . '/public/users/entro/photo/portfolio/', Carbon::now()->timestamp . $request->file('photo')->getClientOriginalName());
                 $logoname = Carbon::now()->timestamp . $request->file('photo')->getClientOriginalName();
@@ -61,19 +83,50 @@ class PortfolioController extends Controller
 
 
 
-            $input = $request->except('_token');
-            $input['user_id'] = Auth::user()->id;
+          
+           /* $input['user_id'] = Auth::user()->id;*/
             $com_data=DB::table('company')->where('user_id',Auth::user()->id)->first();
-            $input['com_id'] = $com_data->id;
+            /*$input['com_id'] = $com_data->id;
             $input['photo'] = $logoname;
             $input['photo1'] = $logoname1;
 
-            $input['photo2'] = $logoname2;
+            $input['photo2'] = $logoname2;*/
 
-            Portfolio::create($input);
+           /* Portfolio::create($input);*/
+
+
+            $com_id = $com_data->id;
+            $user_id = Auth::user()->id;
+            $photo = $logoname;
+            $photo1 = $logoname1;
+            $photo2 = $logoname2;
+            $project_name = $request->project_name;
+            $address = $request->address;
+            $description = $request->description;
+            $start_date = $request->start_date;
+
+            DB::table('')->where('id', $id)->update(['clearing' => $request->clearing,
+            'pctype' => $request->pctype,
+            'sq' => $request->sq,
+            'Testion' => $request->Testion,
+            'cost_for_paint_pk' => $request->cost_for_paint_pk,
+            'cost_ex_clear' => $request->cost_ex_clear,
+            'cost_ex_Selar' => $request->cost_ex_Selar,
+            'cost_ex_Putty' => $request->cost_ex_Putty,
+            'cost_ex_Color' => $request->cost_ex_Color,
+            'cost_ex_Testion' => $request->cost_ex_Testion,
+            'Selar' => $request->Selar,
+            'Putty' => $request->Putty,
+            'Color' => $request->Color,
+            'com_id' => $get_com->id,
+            'updated_at' => Carbon::now(),
+        ]);
+
+
             Session::flash('portfolio', 'added');
             return redirect('entra/portfolio/list');
         }
+
 
 
     }

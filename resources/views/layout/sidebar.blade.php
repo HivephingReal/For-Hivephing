@@ -1,4 +1,5 @@
 <!-- /. NAV TOP  -->
+</script>
      <nav class="navbar-default navbar-side" role="navigation">
  <div class="sidebar-collapse">
      <ul class="nav" id="main-menu">
@@ -145,7 +146,7 @@
                  Tenders
              </a>
          </li>
-
+        
          <li>
              <a href="{{ url('/logout') }}"
                      onclick="event.preventDefault();

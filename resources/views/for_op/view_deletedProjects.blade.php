@@ -47,7 +47,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                             <td class="text-center">
                                                 {{ $d->name }}
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center" style = "width : 30px; height: 30px;">
                                                 {{ $d->description }}
                                             </td>
                                             

@@ -412,7 +412,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
                                             <div class="form-actions">
                                                 <button type="submit" class="btn blue">Submit</button>
-                                                <button type="button" class="btn default">Cancel</button>
+                                                <button type="reset" class="btn default">Cancel</button>
                                             </div>
                                         </div>
                                     </div>

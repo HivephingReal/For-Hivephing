@@ -3,17 +3,6 @@
 @section('title','Admin Dashboard')
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $.get("demo_test.php", function(data, status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-  });
-});
-</script>
-
     <div class="row">
         <!-- Boxes de Acoes -->
        @if(auth()->guard('admin')->user()->role=='admin')
@@ -40,7 +29,6 @@ $(document).ready(function(){
                         <h3 class="title">Tenders</h3>
                         <div id="shiva"><span class="count">{{count($tender)}}</span></div>
                         <div class="more">
-
                         </div>
                     </div>
                 </div>
@@ -104,7 +92,6 @@ $(document).ready(function(){
                         </div>
                     </div>
                 </div>
-                <div class="space"><button>Send an HTTP GET request to a page and get the result back</button></div>
             </div>
         </div>
  @endsection

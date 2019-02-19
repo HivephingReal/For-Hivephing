@@ -154,11 +154,11 @@
                                 {!! $data->created_at !!}
                             </div>
                             <div class="lib-row lib-desc">
-                                <?php
-                                    $project_count=DB::table('see_projects_with_plan')->where('user_id',$data->user_id)->count();
-                                ?>
-                                See_porject_count  :
-                                {{$project_count}}
+                                See_project_count  : 
+                                 <?php
+                                    $total = DB::SELECT('SELECT DISTINCT project_id FROM see_projects_with_plan WHERE user_id = ?;',[$data->user_id]);
+                                    echo count($total);
+                                 ?>
                             </div>
                             <br>
 

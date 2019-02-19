@@ -255,6 +255,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         $con_count = 0;
                         ?>
                         @foreach($con as $conidd )
+                          @if($conidd->delete != 1)
                             <?php
                             $limit_q = DB::table('user_saw_this_plan')->where('project_id', $conidd->id)->count();
                             ?>
@@ -263,6 +264,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                             @else
                                 <?php $con_count += 1;?>
                             @endif
+                          @endif
                         @endforeach
                         {{--{{$con_count}}--}}
                     
@@ -276,6 +278,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $e_count = 0;
                     ?>
                     @foreach($e as $eidd )
+                      @if($eidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $eidd->id)->count();
                         ?>
@@ -284,6 +287,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $e_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$e_count}}--}}
                     {{--</button>--}}
@@ -297,6 +301,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $wp_count = 0;
                     ?>
                     @foreach($wp as $wpidd )
+                     @if($wpidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $wpidd->id)->count();
                         ?>
@@ -305,6 +310,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $wp_count += 1;?>
                         @endif
+                     @endif
                     @endforeach
                     {{--{{$wp_count}}--}}
                     {{--</button>--}}
@@ -320,6 +326,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $pf = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr7', 'fr7'])->get();
                     $pf_count = 0;?>
                     @foreach( $pf as  $pfidd )
+                      @if($pfidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $pfidd->id)->count();
                         ?>
@@ -328,6 +335,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $pf_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$pf_count}}--}}
                     {{--</button>--}}
@@ -343,6 +351,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $al_count = 0;
                     ?>
                     @foreach( $al as  $alidd )
+                     @if($alidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $alidd->id)->count();
                         ?>
@@ -351,6 +360,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $al_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$al_count}}--}}
                     {{--</button>--}}
@@ -367,6 +377,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $cc_count = 0;
                     ?>
                     @foreach($cc as $ccidd )
+                      @if($ccidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $ccidd->id)->count();
                         ?>
@@ -375,6 +386,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $cc_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$cc_count}}--}}
                     {{--</button>--}}
@@ -391,6 +403,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $id_count = 0;
                     ?>
                     @foreach($id as $idd )
+                      @if($idd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $idd->id)->count();
                         ?>
@@ -399,6 +412,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $id_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$id_count}}--}}
                     {{--</button>--}}
@@ -415,6 +429,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $p_count = 0;?>
 
                     @foreach($p as $pdd )
+                     @if($pdd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $pdd->id)->count();
                         ?>
@@ -423,6 +438,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $p_count += 1;?>
                         @endif
+                     @endif
                     @endforeach
                     {{--{{$p_count}}--}}
                     {{--</button>--}}
@@ -437,6 +453,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $ai_count = 0;
                     ?>
                     @foreach($ai as $aidd )
+                     @if($aidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $aidd->id)->count();
                         ?>
@@ -445,6 +462,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $ai_count += 1;?>
                         @endif
+                     @endif
                     @endforeach
                     {{--{{$ai_count}}--}}
                     {{--</button>--}}
@@ -461,6 +479,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $sss_count = 0;
                     ?>
                     @foreach($sss as $sssidd )
+                       @if($sssidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $sssidd->id)->count();
                         ?>
@@ -469,6 +488,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $sss_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$sss_count}}--}}
                     {{--</button>--}}
@@ -485,6 +505,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $esss_count = 0;
                     ?>
                     @foreach($esss as $esssidd )
+                       @if($esssidd->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $esssidd->id)->count();
                         ?>
@@ -493,6 +514,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         @else
                             <?php $esss_count += 1;?>
                         @endif
+                      @endif
                     @endforeach
                     {{--{{$esss_count}}--}}
                     {{--</button>--}}
@@ -515,6 +537,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['rb1', 'b1', 'b2', 'b3'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -527,6 +550,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                     @endif
                     @endforeach
                 </ol>
                 <ol id="show2" style="display:none;">
@@ -535,6 +559,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr3', 'rb3'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -547,6 +572,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                     @endif
                     @endforeach
                 </ol>
                 <ol id="show3" style="display:none;">
@@ -555,6 +581,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr1', 'rb2'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -567,6 +594,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                      @endif
                     @endforeach
                 </ol>
                 <ol id="show4" style="display:none;">
@@ -575,6 +603,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr7', 'fr7'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -586,7 +615,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 <i>{!! strip_tags(str_limit($d->description,80)) !!}
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
-
+                      @endif
                     @endforeach
                 </ol>
                 <ol id="show5" style="display:none;">
@@ -595,6 +624,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr5', 'fr5'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -607,6 +637,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                     @endif
                     @endforeach
                 </ol>
                 <ol id="show6" style="display:none;">
@@ -615,6 +646,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr8', 'rb5'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                     @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -627,6 +659,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                     @endif
                     @endforeach
                 </ol>
                 <ol id="show7" style="display:none;">
@@ -635,6 +668,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fn1', 'fn2', 'fn3', 'fn4'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                        @if($d->delete != 1)
+
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -647,6 +682,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                        @endif
                     @endforeach
                 </ol>
                 <ol id="show8" style="display:none;">
@@ -655,6 +691,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['rb1', 'b1', 'b2', 'b3'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                     @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -667,6 +704,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
 
+                      @endif
                     @endforeach
                 </ol>
                 <ol id="show9" style="display:none;">
@@ -675,6 +713,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr4', 'rb4'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -686,7 +725,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 <i>{!! strip_tags(str_limit($d->description,80)) !!}
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
-
+                      @endif
                     @endforeach
                 </ol>
                 <ol id="show10" style="display:none;">
@@ -695,6 +734,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 0]])->whereIn('fr_type', ['fr8', 'rb5'])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                      @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -706,7 +746,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 <i>{!! strip_tags(str_limit($d->description,80)) !!}
                                     <a href="{{url('/detail_without_auth/'.$d->id)}}">More</a></i></li>
                         @endif
-
+                      @endif
                     @endforeach
                 </ol>
                 <ol id="show11" style="display:none;">
@@ -715,6 +755,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                     $data = DB::connection('mysql_service')->table('for_repair')->where([['confirm', '=', 'confirmed'], ['close', '=', 1]])->orderBy('created_at', 'desc')->get();
                     ?>
                     @foreach($data as $d)
+                     @if($d->delete != 1)
                         <?php
                         $limit_q = DB::table('user_saw_this_plan')->where('project_id', $d->id)->count();
                         ?>
@@ -726,6 +767,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                 </i></li>
                         @endif
 
+                     @endif
                     @endforeach
                 </ol>
 

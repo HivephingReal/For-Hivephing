@@ -13,7 +13,6 @@
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -24,6 +23,11 @@ Route::post('/for_api/copy_logo', 'AccessoriesforapiController@copy_photo_from_a
 Route::get('/welcome', function () {
     return view('welcome.welcome');
 });
+/*ki ki - Admin*/
+Route::get('history','HistoryController@index'); 
+//Route::get('register','HistoryController@index');
+Route::get('monthly_registered_companies/{date}','HistoryController@monthly_registered_companies_now');
+Route::get('monthly_registered_companies','HistoryController@monthly_registered_companies');
 
 Route::get('/adminhome', 'AdminAuth\AdminHomeController@index');
 Route::post('Admin_login', 'AdminAuth\LoginController@login');
@@ -41,7 +45,6 @@ Route::get('company_register_form_three', 'EntroController@company_register_form
 Route::post('company_register_form_two', 'EntroController@company_register_form_two');
 Route::post('company_register_form_three', 'EntroController@company_register_form_three');
 Route::post('company_register', 'EntroController@company_register');
-
 
 Route::get('business_news', 'EntroController@businessnew');
 Route::get('othernews', 'EntroController@othernews');
@@ -63,7 +66,6 @@ Route::get('delete_post/{id}', 'ServiceController@delete_post');
 Route::get('view_deletedProjects', 'ServiceController@view_deletedProjects');
 Route::get('restore_post/{id}', 'ServiceController@restore_post');
 
-
 //end route for op
 Route::get('service/detail/confirm/{id}', 'ConfirmserviceController@confirm_service');
 Route::group(['prefix' => 'entra'], function () {
@@ -79,21 +81,14 @@ Route::group(['prefix' => 'entra'], function () {
     Route::get('send_quotation', 'ConstructprojectsController@sendquotation');
     Route::get('request_quotation', 'ConstructprojectsController@request_quotation');
     Route::get('construct_project_detail/{id}', 'ConstructprojectsController@detail');
-
-
     Route::get('construct_project_detail_one/{id}', 'ConstructprojectsController@construct_project_detail_one');//project id
-
-
 //portfolio
-
     Route::get('portfolio/add', 'PortfolioController@add');
     Route::post('portfolio/add', 'PortfolioController@add_data');
     Route::get('portfolio/list', 'PortfolioController@portfolio');
     Route::get('portfolio/delete/{id}', 'PortfolioController@delete');
     Route::get('portfolio/edit/{id}', 'PortfolioController@edit_form');
     Route::post('portfolio/edit/{id}', 'PortfolioController@edit');
-
-
 //end portfolio
     //Ki Ki
     Route::get('upload_project', 'UploadprojectController@upload_project');
@@ -549,19 +544,12 @@ Route::get('detail_without_auth/{id}', 'ConstructprojectsController@detail_witho
 Route::get('entra/invite_com', 'ConstructprojectsController@invite_com');
 Route::get('entra/detail_invite_project/{id}', 'ConstructprojectsController@detail_invite_project');
 Route::get('entra/detail_project_without_request/{id}', 'ConstructprojectsController@detail_project_without_request');
-
 //end without_auth
-
-
 //close
 Route::post('close_project', 'CloseprojectController@close_project');
 Route::post('open_project', 'CloseprojectController@open_project');
 //end close project
-
-
 //portfolio
-
-
 Route::post('store_fcm', 'FirebasemessageController@store');
 Route::get('change_psw/{email}', function ($email) {
     $new_password = bcrypt('123456');
@@ -579,5 +567,16 @@ Route::post('store_token', 'FirebasemessageController@store_token');
 
 Route::get('send_noti', 'FirebasemessageController@sendnoti');
 
+Route::get('getprj', function(){
+      $project_count=DB::table('see_projects_with_plan')->where('user_id',200)->get();
+
+      $no = 0;
+                                            
+                                            foreach($project_count as $p)
+                                            {
+                                                $no++;
+                                                echo $no."-------".$p->project_id."<br>";
+                                            }
+});
 
 

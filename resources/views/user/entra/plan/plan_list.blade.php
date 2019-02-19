@@ -89,6 +89,21 @@
 
                 <!-- END THEME PANEL -->
                 <!-- BEGIN PAGE BAR -->
+                <?php 
+                $pt = DB::table('company_with_plan')->where('com_id', Auth:: user()->id)->first();
+
+                if(is_null($pt))
+                {
+                    $point = "NULL";
+                }
+                else{
+                    $point = $pt->remaining_point;
+                }
+
+                
+
+                ?>
+                Remaining points ({{ $point }})
 
                 <div class="portlet light portlet-fit ">
                     <div class="portlet-body">

@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Country')
+@section('title','Company')
 @section('content')
     @if(sizeof($data)==0)
 
@@ -19,7 +19,7 @@
                 <!-- Advanced Tables -->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Countries Table
+                        Company Table
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -28,13 +28,12 @@
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Name</th>
-                                     <th class="text-center">Email</th>
-
+                                    <th class="text-center">Email</th>
                                     <th class="text-center">Phone</th>
-                                    <th class="text-center">CIty</th>
-                                    <th class="text-center">State</th>
-                                    <th class="text-center">Plan</th>
-                                    <th class="text-center">Free Points</th>
+                                    <th class="text-center">Seen Projects</th>
+                                    <th class="text-center">Requested Projects</th>
+                                    <th class="text-center">Comfirmed Projects</th>
+                                    <th class="text-center">Remaining Points</th>
 
                                     <th></th>
                                 </tr>
@@ -56,26 +55,25 @@
                                          @endif
                                          </td>
                                         <td>{{$dd->phone}}</td>
-                                        <td>{{$dd->city_id}}</td>
                                         <td>
                                             <?php
-                                            $check_block = \Illuminate\Support\Facades\DB::table('user_block')->where([['user_id', '=', $dd->user_id], ['circum', '=', 'block']])->count();
+                                                 $total = DB::SELECT('SELECT DISTINCT project_id FROM see_projects_with_plan WHERE user_id = ?;',[$dd->user_id]);
+                                                 
+                                           
+                                            echo count($total);
+                                             ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $project_count=DB::connection('mysql_service')->table('request')->where('requester_id',$dd->user_id)->count();
                                             ?>
-                                            @if($check_block > 0)
-                                                {{'Block'}}
-                                                @else
-                                         <?php
-                                            $check_unblock = \Illuminate\Support\Facades\DB::table('user_block')->where([['user_id', '=', $dd->user_id], ['circum', '=', 'unblock']])->count();
-                                            
+                                            {{$project_count}}
+                                        </td>
+                                        <td>
+                                           <?php
+                                                $project_count=DB::connection('mysql_service')->table('request')->where('requester_id',$dd->user_id)->where([['status', '=', 'con']])->count();
                                             ?>
-                                            @if($check_unblock > 0)
-                                            {{'ru'}}
-                                            @else
-                                                {{'Unblock'}}
-
-                                            @endif
-                                            @endif
-
+                                            {{$project_count}}
                                         </td>
                                         <td>
                                             <?php
@@ -83,16 +81,6 @@
                                             ?>
                                             @if($points->count() > 0)
                                                 {{$points->first()->remaining_point}}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $fpoints = \Illuminate\Support\Facades\DB::table('user_get_free_plan')->where('user_id', $dd->user_id);
-                                            ?>
-                                            @if($fpoints->count() > 0)
-                                                {{$fpoints->first()->remaining_point}}
-                                                Date:
-                                                {{$fpoints->first()->end_date}}
                                             @endif
                                         </td>
                                         <td class="text-center">

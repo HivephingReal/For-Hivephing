@@ -1,5 +1,14 @@
-<!-- /. NAV TOP  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("demo_dynamics_label122lar.php", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
 </script>
+<script type= "text/css" src = "{{ asset('app/css') }}"></script>
      <nav class="navbar-default navbar-side" role="navigation">
  <div class="sidebar-collapse">
      <ul class="nav" id="main-menu">
@@ -132,6 +141,11 @@
                  Deleted Projects
              </a>
          </li>
+         <li>
+             <a  href="{{url('history')}}"><i class="fa fa-history" aria-hidden="true" style="font-size:35px;"></i>
+                 History
+             </a>
+         </li>
            <li>
              <a  href="{{url('companies')}}"><i class="fa fa-tablet" aria-hidden="true" style="font-size:35px;"></i>
                  Companies</a>
@@ -154,8 +168,6 @@
                  <i class="fa fa-sign-out" aria-hidden="true" style="font-size:35px;"></i>
                  Log Out
              </a>
-
-
              <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                      style="display: none;">
                  {{ csrf_field() }}

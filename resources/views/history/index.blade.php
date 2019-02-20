@@ -15,7 +15,7 @@
                 <div class="icon">
                     <div class="image" style = "background-color: #35c537;"><i class="fa fa-user"></i></div>
                     <div class="info">
-                        <h3 class="title">Monthly Registered Companies</h3>
+                        <h3 class="title">Company Registeration by Months</h3>
                         <div id="shiva"><span class="count">{{count($company)}}</span></div>
                         <div class="more">
                         </div>
@@ -32,7 +32,7 @@
                 <div class="icon">
                     <div class="image" style = "background-color: #35c537;"><i class="fa fa-user"></i></div>
                     <div class="info">
-                        <h3 class="title">Companies with Plan</h3>
+                        <h3 class="title">Company Buy Points by Months</h3>
                         <div id="shiva"><span class="count">{{count($company_with_plan)}}</span></div>
                         <div class="more">
                         </div>

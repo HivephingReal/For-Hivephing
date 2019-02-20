@@ -11,28 +11,34 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 
     @else
 
-       @if ($errors->has('year'))
-                                <span class="help-block">
-                                                    <strong style = "color: red;">{{ $errors->first('year') }}</strong>
-                                                     </span>
-                            @endif
-
-                             @if ($errors->has('month'))
-                                <span class="help-block">
-                                                    <strong style="color: red;">{{ $errors->first('month') }}</strong>
-                                                     </span>
-                            @endif
-
-
         <div class="row">
+            <p style="    font-size: 20px; color: #337ab6; font-weight: bold;">&nbsp;&nbsp;Monthly Registered Companies</p><br>
+
+            @if ($errors->has('year'))
+                <span class="help-block">
+                    <strong style = "color: red;">{{ $errors->first('year') }}</strong>
+                </span>
+            @endif
+            @if ($errors->has('month'))
+                <span class="help-block">
+                    <strong style="color: red;">{{ $errors->first('month') }}</strong>
+                </span>
+            @endif
+
             <div class="col-md-12">
                 <!-- Advanced Tables -->
                 <form method='get' action='{{url('monthly_registered_companies')}}'>
                     {{csrf_field()}}
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <span style="color:white;font-weight:bolder; font-size: 17px;">
-                        {{ $year }} &nbsp;{{ $month }}  
+                        <span style="font-weight:bolder; font-size: 17px;">
+                        {{ $year }} &nbsp;{{ $month }} : 
+                        <?php $count_com = count($com_list); ?>  {{ $count_com }} 
+                        @if($count_com <= 1)
+                            company
+                        @else
+                            companies
+                        @endif
                         </span>
                         &emsp;
                         <select name = "year" style="color:#337ab6; border-radius: 5px; padding: 6px;">
@@ -56,6 +62,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                         <button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button>
                     </div>
                 </form>
+
                 <!-- com list table -->
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -120,7 +127,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a href="companies/detail/{{$dd->id}}" class="btn btn-info">
+                                             <a href="{{url('companies/detail/'.$dd->id)}}" class="btn btn-info">
                                                 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                                                 Detail
                                             </a>

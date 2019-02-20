@@ -580,3 +580,14 @@ Route::get('getprj', function(){
 });
 
 
+Route::get('aa', function(){
+    $a = array(710,714,715,716);
+    foreach ($a as $k) {
+        $prj = DB::table('see_projects_with_plan')
+                                                        ->where('project_id', $k)
+                                                        ->where('user_id', '=', 1303)
+                                                        ->last();
+                                                        echo $prj->id."<br>";
+    }
+    
+});

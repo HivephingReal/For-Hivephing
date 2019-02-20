@@ -22,9 +22,11 @@ class CompanyController extends Controller
         $data = DB::table('company')->orderBy('id','desc')->get();
         return view('companies.index', ['data' => $data]);
     }
-    public function see_projects($user_id){
-        $data=DB::table('see_projects_with_plan')->where('user_id',$user_id)->get();
-        return view('companies.see_projects',['data'=>$data]);
+     public function see_projects($user_id){
+        
+        $data = DB::SELECT('SELECT DISTINCT project_id, COUNT(*) as count FROM see_projects_with_plan WHERE user_id = ? GROUP BY project_id ORDER BY project_id asc;',[$user_id]);
+        
+        return view('companies.see_projects',['data'=>$data, 'user_id'=>$user_id]);
     }
 
     public function com_detail($id)

@@ -31,52 +31,41 @@ header('Content-Type:text/html');
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th> No</th>
+                                    <th class="text-center">Post ID</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Phone</th>
-                                    <th class="text-center">Des</th>
+                                    <th class="text-center">Description</th>
                                     <th class="text-center">Close</th>
                                     <th class="text-center">Point</th>
-                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Seeing Count</th>
+                                    <th class="text-center">Last Seeing Time</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($data as $d)
-                                    <?php
-                                    $com_cc = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->count();
-
+                            @foreach($data as $d)
+                                <?php
+                                    $com = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->first();
+                                    $create = DB::table('see_projects_with_plan')->where('project_id', $d->project_id)->where('user_id', $user_id)->orderBy('created_at', 'desc')->first();
+                                
                                     ?>
-                                    @if($com_cc != 0)
-
-                                        <?php
-                                        $com = DB::connection('mysql_service')->table('for_repair')->where('id', $d->project_id)->first();
-                                        ?>
-                                        <tr>
-                                            <td>{{$com->id}}
-                                            </td>
-                                            <td>
-                                                {{$com->name}}
-                                            </td>
-                                            <td>
-                                                {{$com->phone}}
-
-                                            </td>
-                                            <td>
-                                                {{strip_tags(str_limit($com->description,'110'))}}
-                                            </td>
-                                            <td>
-                                                {{$com->close}}
-                                            </td>
-                                            <td>
-                                                {{$com->project_define_point}}
-                                            </td>
-                                            <td>
-                                                {{$d->created_at}}
-                                            </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
+                                @if(!empty($com))
+                                <tr>
+                                    <td  class="text-center">{{ $d->project_id }}</td>
+                                    <td  class="text-center">{{ $com->name }}</td>
+                                    <td  class="text-center">{{ $com->phone }}</td>
+                                    <td  class="text-center">
+                                        {{strip_tags(str_limit($com->description,'110'))}}
+                                    </td>
+                                    <td  class="text-center">{{ $com->close }}</td>
+                                    <td  class="text-center">{{ $com->project_define_point }}</td>
+                                    <td class="text-center">{{ $d->count }}</td>
+                                    <td  class="text-center">
+                                        {{ $create->created_at }}   
+                                    </td>
+                                </tr>
+                                @endif
+                            @endforeach
                                 </tbody>
                             </table>
                         </div>

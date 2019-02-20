@@ -25,12 +25,23 @@ class HistoryController extends Controller
 
 	public function monthly_registered_companies_now($date)
 	{
-		$month = Carbon::parse($date)->format('m');
-		$year = Carbon::parse($date)->format('Y');
-		$monthName = date("F", mktime(0, 0, 0, $month, 10));
-		$com_list = DB::table('company')->whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->get(); 
+		$validator = Validator::make(
+            [
+                'date' => 'required|date'
+            ]);
 
-		return view('history.com_list', ['com_list' => $com_list, 'month' => $monthName, 'year' => $year]);
+		if ($validator->fails()) {
+            return redirect()->back();
+        }
+        else
+        {
+			$month = Carbon::parse($date)->format('m');
+			$year = Carbon::parse($date)->format('Y');
+			$monthName = date("F", mktime(0, 0, 0, $month, 10));
+			$com_list = DB::table('company')->whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->get(); 
+
+			return view('history.com_list', ['com_list' => $com_list, 'month' => $monthName, 'year' => $year]);
+		}
 	}
 	public function monthly_registered_companies(Request $request)
 	{
